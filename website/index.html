@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sahaja Yoga Meditation | Free School Outreach Program</title>
+  <meta name="description" content="A free, science-backed meditation program for schools and colleges in India." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap');
+
+    :root {
+      --bg: oklch(98.7% 0.007 97);
+      --bg-subtle: oklch(95.5% 0.006 98);
+      --surface: oklch(100% 0 0);
+      --fg: oklch(20.5% 0.015 62);
+      --muted: oklch(52% 0.02 260);
+      --border: oklch(91.7% 0.006 100);
+      --primary-dark: oklch(22.7% 0.052 155);
+      --primary-mid: oklch(45% 0.092 154);
+      --accent: oklch(68.8% 0.119 153);
+      --accent-light: oklch(86.7% 0.078 151);
+      --gold: oklch(72.2% 0.106 86);
+      --gold-light: oklch(88.8% 0.092 89);
+      --navy: oklch(20% 0.05 249);
+      --blue-soft: oklch(95.4% 0.019 250);
+      --shadow: 0 22px 60px rgba(15, 42, 30, 0.12);
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --ease: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    img, svg { max-width: 100%; display: block; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: clamp(72px, 9vw, 132px) 0; position: relative; }
+    .section-tight { padding: clamp(42px, 6vw, 78px) 0; }
+    .eyebrow {
+      color: var(--primary-mid);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 0.98; margin: 0; text-wrap: balance; }
+    h1 { font-size: clamp(54px, 7vw, 92px); letter-spacing: 0; }
+    h2 { font-size: clamp(40px, 5vw, 70px); }
+    h3 { font-size: clamp(25px, 3vw, 38px); }
+    p { margin: 0; color: var(--muted); }
+    .lead { font-size: clamp(18px, 2vw, 22px); max-width: 720px; }
+    .btn {
+      min-height: 48px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 14px 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform 220ms var(--ease), background 220ms var(--ease), border-color 220ms var(--ease), box-shadow 220ms var(--ease);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--primary-dark); color: white; box-shadow: 0 16px 36px rgba(15, 42, 30, 0.22); }
+    .btn-primary:hover { background: var(--primary-mid); }
+    .btn-accent { background: var(--accent); color: white; }
+    .btn-accent:hover { background: var(--primary-mid); }
+    .btn-outline { border-color: color-mix(in oklch, var(--primary-mid), transparent 35%); color: var(--primary-dark); background: color-mix(in oklch, var(--surface), transparent 6%); }
+    .btn-gold { background: var(--gold); color: var(--primary-dark); width: 100%; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 46px rgba(15, 42, 30, 0.08);
+      transition: transform 260ms var(--ease), box-shadow 260ms var(--ease), border-color 260ms var(--ease);
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 26px 70px rgba(15, 42, 30, 0.13); border-color: color-mix(in oklch, var(--accent), var(--border) 55%); }
+
+    .site-nav {
+      position: fixed;
+      z-index: 50;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: color-mix(in oklch, var(--bg), transparent 8%);
+      backdrop-filter: blur(16px);
+      transition: box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+    .site-nav.scrolled { box-shadow: 0 16px 38px rgba(15, 42, 30, 0.11); border-color: var(--border); }
+    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 900; color: var(--primary-dark); }
+    .brand-mark { width: 38px; height: 38px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; box-shadow: inset 0 0 0 1px var(--border); }
+    .nav-links { display: flex; gap: 24px; align-items: center; color: color-mix(in oklch, var(--fg), white 16%); font-size: 14px; font-weight: 800; }
+    .nav-links a { position: relative; padding: 6px 0; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 2px; background: var(--accent); transition: right 220ms var(--ease); }
+    .nav-links a:hover::after { right: 0; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle { display: inline-flex; gap: 3px; padding: 4px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
+    .lang-toggle button { border: 0; background: transparent; border-radius: 999px; padding: 7px 10px; cursor: pointer; color: var(--muted); font-size: 12px; font-weight: 800; }
+    .lang-toggle button.active { background: var(--primary-dark); color: white; }
+    .hamburger { display: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); cursor: pointer; }
+    .hamburger span { display: block; width: 18px; height: 2px; background: var(--primary-dark); margin: 4px auto; }
+
+    .hero {
+      min-height: 100vh;
+      padding: 112px 0 54px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 22%, rgba(82, 183, 136, 0.12) 0 1px, transparent 1px),
+        radial-gradient(circle at 86% 78%, rgba(201, 168, 76, 0.13) 0 1px, transparent 1px);
+      background-size: 34px 34px, 46px 46px;
+      opacity: 0.48;
+      z-index: -3;
+    }
+    #neuralCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr); align-items: center; gap: clamp(42px, 7vw, 92px); }
+    .hero-copy { max-width: 760px; }
+    .hero-title { margin: 16px 0 22px; color: var(--primary-dark); }
+    .hero-title .word { display: inline-block; opacity: 0; transform: translateY(22px); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 34px 0 24px; }
+    .trust-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .trust-badges span { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: color-mix(in oklch, var(--surface), transparent 8%); color: var(--primary-dark); font-weight: 900; font-size: 13px; }
+    .founder-card { position: relative; justify-self: center; width: min(100%, 430px); }
+    .portrait-shell {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 52%, var(--accent-light) 0 58%, transparent 59%);
+      display: grid;
+      place-items: center;
+      filter: drop-shadow(0 26px 46px rgba(15, 42, 30, 0.18));
+    }
+    .portrait { width: 88%; height: 88%; border-radius: 50%; background: #f4d7bc; overflow: hidden; border: 10px solid var(--surface); }
+    .founder-caption { text-align: center; margin-top: 18px; color: var(--primary-dark); font-weight: 800; }
+    .scroll-cue { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: var(--primary-mid); font-size: 24px; animation: bounce 1.8s infinite; }
+    @keyframes bounce { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+    .trust-bar { background: var(--bg-subtle); border-block: 1px solid var(--border); overflow: hidden; }
+    .trust-track { display: flex; justify-content: center; gap: 0; white-space: nowrap; }
+    .trust-item { padding: 20px 24px; color: var(--navy); font-size: 12px; font-weight: 900; letter-spacing: 0.09em; text-transform: uppercase; border-right: 1px solid var(--border); }
+    .trust-item:first-child { border-left: 1px solid var(--border); }
+
+    .intro-grid, .brain-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(34px, 6vw, 82px); align-items: center; }
+    .section-head { display: grid; gap: 16px; margin-bottom: 42px; }
+    .science-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .science-card { padding: 28px; border-top: 5px solid var(--accent); border-radius: 18px 18px 10px 10px; }
+    .science-card h3 { margin-bottom: 14px; color: var(--primary-dark); font-size: 34px; }
+    .quote-line { margin-top: 54px; text-align: center; font-family: var(--font-display); color: var(--primary-mid); font-size: clamp(34px, 4.4vw, 60px); line-height: 1.08; }
+
+    .stats-section { background: var(--primary-dark); color: white; overflow: hidden; }
+    .stats-section h2, .stats-section .eyebrow { color: white; }
+    .stats-section .lead { color: color-mix(in oklch, white, transparent 28%); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
+    .stat-card { padding: 34px 24px; border: 1px solid rgba(255,255,255,0.13); background: rgba(255,255,255,0.055); border-radius: 12px; }
+    .stat-number { font-family: var(--font-display); color: var(--gold); font-size: clamp(48px, 5vw, 82px); line-height: 0.9; }
+    .stat-card b { display: block; margin: 14px 0 6px; color: white; font-size: 18px; }
+    .stat-card small, .stats-note { color: rgba(255,255,255,0.68); }
+    .stats-note { margin-top: 28px; }
+
+    .brain-panel { min-height: 480px; border-radius: 18px; background: linear-gradient(180deg, #fff, #f8fbf9); border: 1px solid var(--border); padding: clamp(22px, 4vw, 44px); box-shadow: var(--shadow); }
+    .check-list { list-style: none; padding: 0; margin: 28px 0; display: grid; gap: 14px; }
+    .check-list li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; color: var(--fg); }
+    .check-list li::before { content: "✓"; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--accent-light); color: var(--primary-dark); font-weight: 900; }
+    .citation { border-left: 3px solid var(--gold); padding-left: 16px; font-size: 14px; color: var(--muted); }
+
+    .benefits-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .benefit-card { border-radius: 16px; padding: 24px; border-top: 5px solid var(--accent-color); min-height: 220px; }
+    .benefit-icon { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 20px; background: color-mix(in oklch, var(--accent-color), white 78%); color: color-mix(in oklch, var(--accent-color), black 22%); }
+    .benefit-card h3 { font-size: 28px; color: var(--primary-dark); margin-bottom: 10px; }
+    .student-photo {
+      margin-top: 34px;
+      min-height: 300px;
+      border-radius: 24px 8px 24px 8px;
+      background:
+        linear-gradient(90deg, rgba(15,42,30,0.10), rgba(15,42,30,0.01)),
+        linear-gradient(180deg, rgba(255,255,255,0.4), transparent 42%),
+        linear-gradient(180deg, #f4e9d4 0 52%, #d8c09a 53% 100%);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .student-photo::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 52%;
+      height: 2px;
+      background: rgba(15,42,30,0.12);
+      box-shadow: 0 48px 0 rgba(15,42,30,0.08), 0 -64px 0 rgba(255,255,255,0.4);
+    }
+    .student {
+      position: absolute;
+      bottom: 34px;
+      width: 76px;
+      height: 132px;
+      transform: translateX(-50%);
+    }
+    .student::before {
+      content: "";
+      position: absolute;
+      left: 21px;
+      top: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #9b5a3d;
+      box-shadow: inset 0 -4px 0 rgba(0,0,0,0.1);
+    }
+    .student::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 40px;
+      width: 52px;
+      height: 58px;
+      border-radius: 18px 18px 8px 8px;
+      background: var(--uniform);
+      box-shadow: inset 0 -10px 0 rgba(255,255,255,0.16);
+    }
+    .student i {
+      position: absolute;
+      left: 2px;
+      right: 2px;
+      bottom: 0;
+      height: 42px;
+      border-radius: 50%;
+      background: transparent;
+      border-bottom: 16px solid color-mix(in oklch, var(--uniform), black 22%);
+      border-left: 16px solid color-mix(in oklch, var(--uniform), black 22%);
+      border-right: 16px solid color-mix(in oklch, var(--uniform), black 22%);
+    }
+
+    .approvals { background: var(--blue-soft); }
+    .approval-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .approval-card { border-radius: 18px; padding: 30px; position: relative; }
+    .approval-card::after { content: "✓"; position: absolute; right: 22px; top: 22px; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: white; display: grid; place-items: center; font-weight: 900; }
+    .approval-card h3 { color: var(--primary-dark); font-size: 34px; margin-bottom: 16px; padding-right: 42px; }
+    .approval-note { margin-top: 28px; font-weight: 800; color: var(--primary-dark); }
+
+    .conference-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scrollbar-color: var(--primary-dark) transparent; }
+    .pill { flex: 0 0 auto; background: var(--navy); color: white; padding: 15px 18px; border-radius: 999px; font-weight: 900; }
+    .quote-card { margin-top: 34px; padding: clamp(28px, 4vw, 48px); border-left: 6px solid var(--gold); border-radius: 8px 20px 20px 8px; background: var(--surface); box-shadow: var(--shadow); }
+    .quote-card blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(30px, 4vw, 52px); line-height: 1.08; color: var(--primary-dark); }
+    .quote-card cite { display: block; margin-top: 18px; font-style: normal; font-weight: 800; color: var(--muted); }
+
+    .video-section { background: var(--navy); color: white; }
+    .video-section .lead { color: rgba(255,255,255,0.72); }
+    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 42px; }
+    .video-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; overflow: hidden; transition: transform 260ms var(--ease), box-shadow 260ms var(--ease); }
+    .video-card:hover { transform: translateY(-5px); box-shadow: 0 0 42px rgba(82,183,136,0.18); }
+    .thumbnail { aspect-ratio: 16 / 9; display: grid; place-items: center; background:
+      linear-gradient(135deg, rgba(82,183,136,0.32), rgba(15,42,30,0.25)),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 12px); }
+    .play { width: 76px; height: 76px; border-radius: 50%; background: white; color: var(--primary-dark); border: 0; display: grid; place-items: center; font-size: 28px; cursor: pointer; }
+    .video-body { padding: 22px; }
+    .video-body h3 { font-size: 30px; margin-bottom: 8px; color: white; }
+
+    .process { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 42px; }
+    .process::before { content: ""; position: absolute; left: 8%; right: 8%; top: 29px; height: 2px; background: color-mix(in oklch, var(--accent), transparent 35%); }
+    .step { position: relative; padding-top: 62px; }
+    .step-number { position: absolute; top: 0; left: 0; width: 58px; height: 58px; border-radius: 50%; background: var(--accent); color: white; display: grid; place-items: center; font-weight: 900; box-shadow: 0 12px 26px rgba(82,183,136,0.3); }
+    .step-card { padding: 24px; border-radius: 14px; min-height: 190px; }
+    .step-card h3 { font-size: 29px; color: var(--primary-dark); margin-bottom: 10px; }
+    .free-note { margin-top: 30px; color: var(--primary-dark); font-weight: 900; font-size: 20px; }
+
+    .cta-section { background: var(--primary-dark); color: white; }
+    .cta-section .lead { color: rgba(255,255,255,0.76); margin-inline: auto; text-align: center; }
+    .cta-head { text-align: center; display: grid; gap: 16px; margin-bottom: 38px; }
+    .form-card { width: min(760px, 100%); margin-inline: auto; background: white; color: var(--fg); border-radius: 24px 8px 24px 8px; padding: clamp(24px, 4vw, 42px); box-shadow: 0 28px 80px rgba(0,0,0,0.26); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: 13px; font-weight: 900; color: var(--primary-dark); }
+    input, select { width: 100%; border: 1px solid var(--border); border-radius: 12px; min-height: 48px; padding: 12px 14px; background: white; color: var(--fg); outline: none; transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease); }
+    input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in oklch, var(--accent), transparent 78%); }
+    .form-error { min-height: 20px; color: #b42318; font-size: 13px; font-weight: 700; }
+    .privacy { margin: 14px 0 24px; font-size: 14px; text-align: center; }
+    .cta-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+    .cta-trust span { border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; padding: 8px 12px; color: rgba(255,255,255,0.86); font-weight: 800; font-size: 13px; }
+
+    footer { background: var(--navy); color: white; padding: 54px 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 28px; }
+    footer p, footer a { color: rgba(255,255,255,0.68); }
+    footer h4 { margin: 0 0 12px; font-size: 14px; letter-spacing: 0.11em; text-transform: uppercase; color: white; }
+    .footer-links { display: grid; gap: 8px; }
+    .socials { display: flex; gap: 10px; margin-top: 18px; }
+    .socials a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.16); display: grid; place-items: center; color: white; }
+
+    .modal-backdrop { position: fixed; inset: 0; z-index: 90; background: rgba(8, 12, 20, 0.58); display: none; place-items: center; padding: 24px; }
+    .modal-backdrop.open { display: grid; }
+    .modal { width: min(760px, 100%); max-height: min(760px, 90vh); overflow: auto; background: var(--surface); border-radius: 18px; box-shadow: 0 32px 90px rgba(0,0,0,0.32); }
+    .modal-head { padding: 24px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; gap: 18px; align-items: start; }
+    .modal-head h2 { font-size: 36px; color: var(--primary-dark); }
+    .modal-close { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: white; cursor: pointer; font-size: 24px; }
+    .modal-body { padding: 28px; display: grid; gap: 18px; }
+    .proposal-page { border: 1px solid var(--border); padding: 24px; border-radius: 12px; background: var(--bg); }
+    .proposal-page h3 { color: var(--primary-dark); font-size: 30px; margin-bottom: 10px; }
+
+    @media (max-width: 1040px) {
+      .nav-links, .nav-actions .btn-accent { display: none; }
+      .hamburger { display: block; }
+      .nav-inner.open { align-items: flex-start; height: auto; padding: 18px 0; flex-wrap: wrap; }
+      .nav-inner.open .nav-links { order: 5; width: 100%; display: grid; gap: 10px; padding: 12px 0; }
+      .hero-grid, .intro-grid, .brain-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 100px; }
+      .founder-card { width: min(400px, 90%); }
+      .science-cards, .approval-grid { grid-template-columns: 1fr; }
+      .stats-grid, .process { grid-template-columns: repeat(2, 1fr); }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .process::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 28px, 1180px); }
+      .nav-inner { height: 68px; }
+      .brand span { max-width: 160px; line-height: 1.05; }
+      .lang-toggle button { padding: 7px 8px; }
+      .hero-actions, .trust-badges { align-items: stretch; flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .trust-track { justify-content: flex-start; width: max-content; animation: marquee 22s linear infinite; }
+      .trust-item { padding-inline: 18px; }
+      @keyframes marquee { to { transform: translateX(-50%); } }
+      .stats-grid, .benefits-grid, .video-grid, .process, .form-grid, .footer-grid { grid-template-columns: 1fr; }
+      .step { padding-top: 0; padding-left: 72px; }
+      .step-number { left: 0; top: 6px; }
+      .student-photo { min-height: 240px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav" id="siteNav">
+    <div class="wrap nav-inner" id="navInner">
+      <a class="brand" href="#home" aria-label="Sahaja Yoga Meditation home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="30" height="30" role="img">
+            <circle cx="20" cy="13" r="4" fill="#0F2A1E"/>
+            <path d="M12 28c3-6 13-6 16 0" fill="none" stroke="#52B788" stroke-width="3" stroke-linecap="round"/>
+            <path d="M11 20c3-5 15-5 18 0" fill="none" stroke="#C9A84C" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M15 24h10" stroke="#2D6A4F" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Sahaja Yoga Meditation</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#science">Science</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#schools">Schools</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-toggle" aria-label="Language toggle">
+          <button type="button" class="active" data-lang="en">EN</button>
+          <button type="button" data-lang="mr">मराठी</button>
+          <button type="button" data-lang="hi">हिंदी</button>
+        </div>
+        <a class="btn btn-accent" href="#contact">Schedule Free Session</a>
+        <button class="hamburger" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <canvas id="neuralCanvas" aria-hidden="true"></canvas>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Practiced in 120 Countries · Approved by Government of India</div>
+          <h1 class="hero-title" id="heroTitle">Bring Focus, Calm & Confidence to Your School</h1>
+          <p class="lead">A free, science-backed meditation program for students and teachers. Researched at King's College London. Approved in 39,603 schools across India.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Schedule Free Session</a>
+            <a class="btn btn-outline" href="#research">See the Research</a>
+            <button class="btn btn-outline" type="button" data-open-proposal>Download School Proposal PDF</button>
+          </div>
+          <div class="trust-badges" aria-label="Program trust badges">
+            <span>100% Free</span>
+            <span>Non-Religious</span>
+            <span>Govt. Approved</span>
+          </div>
+        </div>
+        <figure class="founder-card">
+          <div class="portrait-shell">
+            <svg class="portrait" viewBox="0 0 500 500" role="img" aria-label="Warm editorial portrait of Shri Mataji Nirmala Devi, Founder">
+              <rect width="500" height="500" fill="#F5D8B4"/>
+              <circle cx="250" cy="210" r="110" fill="#8B4B35"/>
+              <path d="M132 500c14-108 77-174 128-174s114 66 128 174z" fill="#9F1D2A"/>
+              <path d="M150 500c48-63 155-91 223 0z" fill="#C9A84C" opacity=".75"/>
+              <ellipse cx="250" cy="220" rx="78" ry="92" fill="#C98462"/>
+              <path d="M178 192c22-69 119-84 152-9 12 27 5 66-15 91-21-38-37-64-70-78-27 13-48 37-67 71-14-24-17-51 0-75z" fill="#2D1A17"/>
+              <circle cx="222" cy="228" r="6" fill="#261814"/>
+              <circle cx="279" cy="228" r="6" fill="#261814"/>
+              <path d="M225 270c20 17 44 17 64 0" fill="none" stroke="#7F2D26" stroke-width="8" stroke-linecap="round"/>
+              <circle cx="250" cy="205" r="6" fill="#B80E22"/>
+              <path d="M356 280c42-20 65-7 70 31" fill="none" stroke="#C98462" stroke-width="28" stroke-linecap="round"/>
+              <path d="M413 304c16-8 31-5 38 9" fill="none" stroke="#C98462" stroke-width="18" stroke-linecap="round"/>
+              <path d="M124 348c48-26 91-33 126-12 39-20 82-16 126 12v152H124z" fill="#B3192B"/>
+              <path d="M144 382c70-28 143-27 218 0" fill="none" stroke="#E8C56A" stroke-width="12" opacity=".9"/>
+            </svg>
+          </div>
+          <figcaption class="founder-caption">Shri Mataji Nirmala Devi — Founder</figcaption>
+        </figure>
+      </div>
+      <a class="scroll-cue" href="#trust" aria-label="Scroll to trust bar">↓</a>
+    </section>
+
+    <section class="trust-bar section-tight" id="trust" aria-label="Institutional trust bar">
+      <div class="trust-track reveal-left">
+        <div class="trust-item">King's College London — Research Partner</div>
+        <div class="trust-item">Delhi University — Published Studies</div>
+        <div class="trust-item">Telangana Govt — 39,603 Schools Approved</div>
+        <div class="trust-item">Haryana Govt — 500+ Schools Approved</div>
+        <div class="trust-item">Kendriya Vidyalaya — All India Approval</div>
+      </div>
+    </section>
+
+    <section class="section" id="science">
+      <div class="wrap intro-grid">
+        <div class="section-head">
+          <div class="eyebrow">Science framing</div>
+          <h2>Not a Religion. A Science.</h2>
+          <p class="lead">Sahaja Yoga is a meditation technique developed in 1970, now validated by peer-reviewed research across 6 countries.</p>
+        </div>
+        <div class="science-cards">
+          <article class="card science-card reveal-card"><h3>Origin</h3><p>Developed by Shri Mataji Nirmala Devi, Mumbai, 1970. Now practiced in 120+ countries.</p></article>
+          <article class="card science-card reveal-card"><h3>Science</h3><p>50+ peer-reviewed studies. EEG research shows measurable brainwave changes within 6 weeks.</p></article>
+          <article class="card science-card reveal-card"><h3>Schools</h3><p>Already in 39,603 Indian schools via Telangana Govt. Kendriya Vidyalaya approved All India.</p></article>
+        </div>
+      </div>
+      <div class="wrap"><div class="quote-line">No fees. No religion. No dogma. Just results.</div></div>
+    </section>
+
+    <section class="section stats-section" id="research">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Research credentials</div>
+          <h2>What the Research Shows</h2>
+          <p class="lead">Evidence-led outcomes for focus, stress reduction, student wellbeing, and school readiness.</p>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card reveal-card"><div class="stat-number" data-count="6" data-suffix=" Weeks">0</div><b>Measurable improvement</b><small>Average time for focus and stress reduction improvements (King's College London, 2011)</small></article>
+          <article class="stat-card reveal-card"><div class="stat-number" data-count="50" data-suffix="+">0</div><b>Published studies</b><small>Peer-reviewed research studies in international medical journals</small></article>
+          <article class="stat-card reveal-card"><div class="stat-number" data-count="39603" data-format="comma">0</div><b>Schools approved</b><small>Schools approved by Telangana State Government</small></article>
+          <article class="stat-card reveal-card"><div class="stat-number" data-count="120" data-suffix="+">0</div><b>Countries</b><small>Countries where Sahaja Yoga is practiced and studied</small></article>
+        </div>
+        <p class="stats-note">Research conducted at King's College London, Delhi University, AIIMS, and universities across Europe and Australia.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap brain-grid">
+        <div class="brain-copy">
+          <div class="eyebrow">Neuroscience Research</div>
+          <h2>Measurable Brain Changes in 6 Weeks</h2>
+          <p class="lead">EEG studies at King's College London show Sahaja Yoga meditation activates the prefrontal cortex — the brain's focus and decision-making center — while reducing activity in the amygdala, the stress and fear center.</p>
+          <ul class="check-list">
+            <li>Increased theta wave activity — linked to deep focus</li>
+            <li>Reduced cortisol levels — measurable stress reduction</li>
+            <li>Improved alpha-theta synchrony — associated with better memory consolidation</li>
+          </ul>
+          <p class="citation">Source: Manocha R, et al. King's College London, 2011. Published in Evidence-Based Complementary and Alternative Medicine.</p>
+        </div>
+        <div class="brain-panel" aria-label="Medical brain diagram showing prefrontal cortex and amygdala">
+          <svg viewBox="0 0 700 520" role="img">
+            <rect width="700" height="520" fill="transparent"/>
+            <path d="M220 390c-82-22-130-92-124-174 7-96 83-164 178-165 42-58 144-51 178 8 84-6 156 58 166 142 10 88-48 166-134 185-62 83-189 80-264 4z" fill="#F2F7F4" stroke="#DCE7DF" stroke-width="6"/>
+            <path d="M190 202c38-70 116-95 187-62" fill="none" stroke="#B7E4C7" stroke-width="20" stroke-linecap="round"/>
+            <path d="M338 320c62-28 119-20 156 16" fill="none" stroke="#B8D7F1" stroke-width="18" stroke-linecap="round"/>
+            <circle cx="250" cy="166" r="52" fill="#52B788" opacity=".82"/>
+            <ellipse cx="430" cy="342" rx="58" ry="32" fill="#8FC4E8" opacity=".86"/>
+            <path d="M155 255c85-36 166-39 243-9 68 27 116 22 165-19" fill="none" stroke="#CBD8D0" stroke-width="5" stroke-linecap="round"/>
+            <path d="M170 305c105-26 210-16 315 30" fill="none" stroke="#CBD8D0" stroke-width="5" stroke-linecap="round"/>
+            <g font-family="DM Sans, sans-serif" font-weight="800" font-size="18" fill="#0F2A1E">
+              <text x="64" y="96">Prefrontal cortex</text>
+              <path d="M220 104l24 34" stroke="#0F2A1E" stroke-width="2"/>
+              <text x="500" y="420">Amygdala</text>
+              <path d="M500 398l-39-36" stroke="#0F2A1E" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Student benefits</div>
+          <h2>What Students Gain</h2>
+        </div>
+        <div class="benefits-grid">
+          <article class="card benefit-card reveal-card" style="--accent-color:#D97745"><div class="benefit-icon">◎</div><h3>Better Focus</h3><p>Improved concentration and attention span in classroom settings</p></article>
+          <article class="card benefit-card reveal-card" style="--accent-color:#3B82B8"><div class="benefit-icon">∿</div><h3>Less Stress</h3><p>Reduced exam anxiety and emotional overwhelm</p></article>
+          <article class="card benefit-card reveal-card" style="--accent-color:#7C5AA6"><div class="benefit-icon">◌</div><h3>Stronger Memory</h3><p>Enhanced retention and learning speed</p></article>
+          <article class="card benefit-card reveal-card" style="--accent-color:#52B788"><div class="benefit-icon">✓</div><h3>Emotional Calm</h3><p>Better anger control and emotional regulation</p></article>
+          <article class="card benefit-card reveal-card" style="--accent-color:#C9A84C"><div class="benefit-icon">★</div><h3>Confidence</h3><p>Improved self-esteem, values, and social skills</p></article>
+        </div>
+        <div class="student-photo" role="img" aria-label="Illustrated classroom scene with Indian students seated calmly">
+          <span class="student" style="left:16%; --uniform:#27437D"><i></i></span>
+          <span class="student" style="left:29%; --uniform:#8F2D32"><i></i></span>
+          <span class="student" style="left:42%; --uniform:#27437D"><i></i></span>
+          <span class="student" style="left:55%; --uniform:#8F2D32"><i></i></span>
+          <span class="student" style="left:68%; --uniform:#27437D"><i></i></span>
+          <span class="student" style="left:81%; --uniform:#8F2D32"><i></i></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approvals" id="schools">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Government approvals</div>
+          <h2>Approved by Government of India</h2>
+        </div>
+        <div class="approval-grid">
+          <article class="card approval-card reveal-card"><h3>Telangana State</h3><p>39,603 schools approved for Sahaja Yoga Meditation program. State-wide implementation across primary and secondary schools.</p></article>
+          <article class="card approval-card reveal-card"><h3>Haryana State</h3><p>500+ schools approved. Program implemented across government schools in collaboration with education department.</p></article>
+          <article class="card approval-card reveal-card"><h3>Kendriya Vidyalaya Sangathan</h3><p>All India approval for KV schools. Central Government school network covering all states and union territories.</p></article>
+        </div>
+        <p class="approval-note">Additionally recognized by school boards in Maharashtra, Gujarat, and Karnataka.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Medical forums</div>
+          <h2>Presented at International Medical Conferences</h2>
+        </div>
+        <div class="conference-row" aria-label="Conference appearances">
+          <span class="pill">World Health Organization — Geneva</span>
+          <span class="pill">United Nations — New York</span>
+          <span class="pill">Royal College of Physicians — London</span>
+          <span class="pill">International Brain Research Organization</span>
+          <span class="pill">All India Institute of Medical Sciences — Delhi</span>
+          <span class="pill">University of Melbourne — Australia</span>
+        </div>
+        <figure class="quote-card">
+          <blockquote>“Sahaja Yoga shows statistically significant improvements in attention, emotional regulation, and stress biomarkers in school-age children.”</blockquote>
+          <cite>Dr. Ramesh Manocha, King's College London</cite>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section video-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Program proof</div>
+          <h2>See It in Action</h2>
+          <p class="lead">Over 2 million practitioners worldwide. See the research at sahajayoga.org/research</p>
+        </div>
+        <div class="video-grid">
+          <article class="video-card reveal-card"><div class="thumbnail"><button class="play" type="button" aria-label="Play Medical Research video">▶</button></div><div class="video-body"><h3>Medical Research — King's College London</h3><p>Evidence summary and research context for administrators.</p></div></article>
+          <article class="video-card reveal-card"><div class="thumbnail"><button class="play" type="button" aria-label="Play student experience video">▶</button></div><div class="video-body"><h3>Students Share Their Experience</h3><p>Classroom-friendly program introduction and student reflections.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">School implementation</div>
+          <h2>How to Bring This to Your School</h2>
+        </div>
+        <div class="process">
+          <article class="step reveal-card"><div class="step-number">1</div><div class="card step-card"><h3>Contact Us</h3><p>Fill the form below or call. Our school coordinator will respond within 24 hours.</p></div></article>
+          <article class="step reveal-card"><div class="step-number">2</div><div class="card step-card"><h3>Free Demo Session</h3><p>We conduct a 45-minute introductory session for your staff — completely free.</p></div></article>
+          <article class="step reveal-card"><div class="step-number">3</div><div class="card step-card"><h3>Student Sessions</h3><p>Regular sessions for students, 20-30 minutes each, integrated into school schedule.</p></div></article>
+          <article class="step reveal-card"><div class="step-number">4</div><div class="card step-card"><h3>Ongoing Support</h3><p>Trained volunteers continue support at zero cost. No fees ever.</p></div></article>
+        </div>
+        <p class="free-note">Zero cost at every step. No hidden charges. No obligations.</p>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="contact">
+      <div class="wrap">
+        <div class="cta-head">
+          <h2>Ready to Transform Your School?</h2>
+          <p class="lead">Join 39,603+ schools across India. Completely free. No obligations.</p>
+        </div>
+        <form class="form-card" id="sessionForm" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="principal">Principal Name</label><input id="principal" name="principal" autocomplete="name" required /></div>
+            <div class="field"><label for="school">School Name</label><input id="school" name="school" required /></div>
+            <div class="field"><label for="city">City / District</label><input id="city" name="city" required /></div>
+            <div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" inputmode="numeric" maxlength="10" placeholder="10 digit mobile number" required /></div>
+            <div class="field"><label for="email">Email (optional)</label><input id="email" name="email" type="email" autocomplete="email" /></div>
+            <div class="field"><label for="students">Number of Students</label><select id="students" name="students" required><option value="">Select range</option><option>Under 200</option><option>200-500</option><option>500-1000</option><option>1000+</option></select></div>
+          </div>
+          <div class="form-error" id="formError" role="alert"></div>
+          <p class="privacy">We respect your privacy. No spam. Our volunteer coordinator will contact you within 24 hours.</p>
+          <button class="btn btn-gold" type="submit">Schedule Our Free Session</button>
+        </form>
+        <div class="cta-trust"><span>100% Free</span><span>No Dogma</span><span>Non-Religious</span><span>Govt. Approved</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div><a class="brand" href="#home"><span class="brand-mark"></span><span>Sahaja Yoga Meditation</span></a><p style="margin-top:14px">Healthy Minds • Happy Hearts • Better Tomorrow</p><div class="socials"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a><a href="#" aria-label="Email">@</a></div></div>
+      <div><h4>About</h4><div class="footer-links"><a href="#science">Science</a><a href="#benefits">Benefits</a><a href="#schools">Schools</a></div></div>
+      <div><h4>Research</h4><div class="footer-links"><a href="#research">Studies</a><a href="#trust">Approvals</a><a href="#" data-open-proposal>School Proposal</a></div></div>
+      <div><h4>Contact</h4><div class="footer-links"><a href="#contact">Schedule Session</a><a href="https://sahajayoga.org">sahajayoga.org</a><a href="#">Privacy</a></div></div>
+    </div>
+    <div class="wrap" style="margin-top:34px"><p>© Sahaja Yoga Meditation. Free program. No commercial interest.</p></div>
+  </footer>
+
+  <div class="modal-backdrop" id="proposalModal" role="dialog" aria-modal="true" aria-labelledby="proposalTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <div><div class="eyebrow">School proposal preview</div><h2 id="proposalTitle">Free Meditation Session for Schools</h2></div>
+        <button class="modal-close" type="button" data-close-proposal aria-label="Close proposal preview">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="proposal-page"><h3>Program Summary</h3><p>A 45-minute introductory staff session followed by 20-30 minute student sessions, delivered by trained volunteers at zero cost.</p></div>
+        <div class="proposal-page"><h3>Credibility Points</h3><p>Government approvals, peer-reviewed research, and school implementation experience across Telangana, Haryana, and Kendriya Vidyalaya networks.</p></div>
+        <div class="proposal-page"><h3>Next Step</h3><p>Submit the school scheduling form. A volunteer coordinator will contact the school within 24 hours to discuss dates and format.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    const nav = document.getElementById('siteNav');
+    const navInner = document.getElementById('navInner');
+    const menuBtn = document.getElementById('menuBtn');
+    const modal = document.getElementById('proposalModal');
+    const form = document.getElementById('sessionForm');
+    const formError = document.getElementById('formError');
+
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navInner.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.querySelectorAll('.lang-toggle button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang-toggle button').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+    document.querySelectorAll('[data-open-proposal]').forEach((el) => el.addEventListener('click', (event) => {
+      event.preventDefault();
+      modal.classList.add('open');
+      document.body.classList.add('modal-open');
+    }));
+    document.querySelectorAll('[data-close-proposal]').forEach((el) => el.addEventListener('click', closeProposal));
+    modal.addEventListener('click', (event) => { if (event.target === modal) closeProposal(); });
+    window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeProposal(); });
+    function closeProposal() {
+      modal.classList.remove('open');
+      document.body.classList.remove('modal-open');
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formError.textContent = '';
+      const data = new FormData(form);
+      const required = ['principal', 'school', 'city', 'phone', 'students'];
+      const missing = required.find((key) => !String(data.get(key) || '').trim());
+      const phone = String(data.get('phone') || '').trim();
+      if (missing) {
+        formError.textContent = 'Please complete all required fields before submitting.';
+        return;
+      }
+      if (!/^[6-9]\d{9}$/.test(phone)) {
+        formError.textContent = 'Enter a valid 10 digit Indian mobile number.';
+        return;
+      }
+      formError.style.color = '#166534';
+      formError.textContent = 'Request ready. A coordinator would contact this school within 24 hours.';
+      form.reset();
+    });
+
+    const title = document.getElementById('heroTitle');
+    title.innerHTML = title.textContent.split(' ').map((word) => `<span class="word">${word}</span>`).join(' ');
+
+    if (window.gsap) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to('.hero-title .word', { opacity: 1, y: 0, duration: 0.72, stagger: 0.1, ease: 'power2.out', delay: 0.2 });
+      gsap.from('.reveal-left', { scrollTrigger: { trigger: '.trust-bar', start: 'top 78%' }, x: -80, opacity: 0, duration: 0.7, ease: 'power2.out' });
+      gsap.utils.toArray('.reveal-card').forEach((card, index) => {
+        gsap.from(card, { scrollTrigger: { trigger: card, start: 'top 86%' }, y: 34, opacity: 0, duration: 0.68, delay: (index % 5) * 0.05, ease: 'power2.out' });
+      });
+      gsap.from('.brain-copy', { scrollTrigger: { trigger: '.brain-grid', start: 'top 75%' }, x: -54, opacity: 0, duration: 0.75, ease: 'power2.out' });
+      gsap.from('.brain-panel', { scrollTrigger: { trigger: '.brain-grid', start: 'top 75%' }, x: 54, opacity: 0, duration: 0.75, ease: 'power2.out' });
+      gsap.from('.process .step', { scrollTrigger: { trigger: '.process', start: 'top 78%' }, x: -26, opacity: 0, duration: 0.65, stagger: 0.12, ease: 'power2.out' });
+      gsap.from('.form-card', { scrollTrigger: { trigger: '.cta-section', start: 'top 74%' }, scale: 0.95, opacity: 0, duration: 0.75, ease: 'power2.out' });
+      document.querySelectorAll('.stat-number').forEach((el) => {
+        const target = Number(el.dataset.count || 0);
+        const state = { value: 0 };
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 84%',
+          once: true,
+          onEnter: () => gsap.to(state, {
+            value: target,
+            duration: 1.2,
+            ease: 'power2.out',
+            onUpdate: () => {
+              const current = Math.round(state.value);
+              const formatted = el.dataset.format === 'comma' ? current.toLocaleString('en-IN') : current;
+              el.textContent = formatted + (el.dataset.suffix || '');
+            }
+          })
+        });
+      });
+    } else {
+      document.querySelectorAll('.hero-title .word').forEach((word) => { word.style.opacity = 1; word.style.transform = 'none'; });
+    }
+
+    function initNeural() {
+      const canvas = document.getElementById('neuralCanvas');
+      if (!canvas || !window.THREE) return;
+      const hero = document.querySelector('.hero');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(70, hero.clientWidth / hero.clientHeight, 1, 1000);
+      camera.position.z = 360;
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      const isMobile = window.matchMedia('(max-width: 720px)').matches;
+      const count = isMobile ? 80 : 200;
+      const positions = new Float32Array(count * 3);
+      const dots = [];
+      for (let i = 0; i < count; i += 1) {
+        const x = (Math.random() - 0.5) * 720;
+        const y = (Math.random() - 0.5) * 420;
+        const z = (Math.random() - 0.5) * 260;
+        positions[i * 3] = x; positions[i * 3 + 1] = y; positions[i * 3 + 2] = z;
+        dots.push({ x, y, z });
+      }
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const material = new THREE.PointsMaterial({ color: 0x52B788, size: 3.4, transparent: true, opacity: 0.62 });
+      const points = new THREE.Points(geometry, material);
+      scene.add(points);
+      const linePositions = [];
+      const threshold = isMobile ? 95 : 78;
+      for (let i = 0; i < dots.length; i += 1) {
+        for (let j = i + 1; j < dots.length; j += 1) {
+          const dx = dots[i].x - dots[j].x;
+          const dy = dots[i].y - dots[j].y;
+          const dz = dots[i].z - dots[j].z;
+          if (Math.sqrt(dx * dx + dy * dy + dz * dz) < threshold) {
+            linePositions.push(dots[i].x, dots[i].y, dots[i].z, dots[j].x, dots[j].y, dots[j].z);
+          }
+        }
+      }
+      const lineGeometry = new THREE.BufferGeometry();
+      lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+      const lines = new THREE.LineSegments(lineGeometry, new THREE.LineBasicMaterial({ color: 0x52B788, transparent: true, opacity: 0.13 }));
+      scene.add(lines);
+      let mouseX = 0;
+      let mouseY = 0;
+      if (!isMobile) {
+        window.addEventListener('mousemove', (event) => {
+          mouseX = (event.clientX / window.innerWidth - 0.5) * 0.18;
+          mouseY = (event.clientY / window.innerHeight - 0.5) * 0.18;
+        }, { passive: true });
+      }
+      function resize() {
+        const width = hero.clientWidth;
+        const height = hero.clientHeight;
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+      function animate() {
+        requestAnimationFrame(animate);
+        points.rotation.y += 0.0018;
+        points.rotation.x += 0.0005;
+        lines.rotation.copy(points.rotation);
+        scene.rotation.x += (mouseY - scene.rotation.x) * 0.025;
+        scene.rotation.y += (mouseX - scene.rotation.y) * 0.025;
+        renderer.render(scene, camera);
+      }
+      window.addEventListener('resize', resize);
+      resize();
+      animate();
+    }
+    initNeural();
+  </script>
+</body>
+</html>

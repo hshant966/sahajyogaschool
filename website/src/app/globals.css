@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+@import "tailwindcss";
+
+@theme inline {
+  /* Colors */
+  --color-bg: #FAFAF7;
+  --color-bg-subtle: #F2F2ED;
+  --color-fg: #1C1917;
+  --color-fg-muted: #6B7280;
+  --color-fg-subtle: #9CA3AF;
+  --color-primary: #0F2A1E;
+  --color-primary-mid: #2D6A4F;
+  --color-accent: #52B788;
+  --color-accent-light: #B7E4C7;
+  --color-gold: #C9A84C;
+  --color-gold-light: #F0D98D;
+  --color-border: #E5E5E0;
+  --color-card: #FFFFFF;
+
+  /* Typography — overrides Tailwind defaults */
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+}
+
+:root {
+  --bg: #FAFAF7;
+  --bg-subtle: #F2F2ED;
+  --fg: #1C1917;
+  --fg-muted: #6B7280;
+  --primary: #0F2A1E;
+  --primary-mid: #2D6A4F;
+  --accent: #52B788;
+  --accent-light: #B7E4C7;
+  --gold: #C9A84C;
+  --border: #E5E5E0;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #FAFAF7;
+  color: #1C1917;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #B7E4C7;
+  color: #0F2A1E;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #FAFAF7; }
+::-webkit-scrollbar-thumb { background: #52B788; border-radius: 2px; }
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+/* Fix: Tailwind v4 uses margin-inline (logical) for mx-auto but logical props
+   get zeroed by cascade interactions. Force physical margin centering. */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Premium card hover effects */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(15, 42, 30, 0.12);
+}

@@ -1,0 +1,271 @@
+================================================================================
+AI IMAGE PROMPTING GUIDES FOR SAHAJA YOGA SCHOOL OUTREACH
+================================================================================
+
+3 COMPREHENSIVE GUIDES CREATED (93 KB, 2,598 lines total)
+
+Files:
+  1. image-prompting-master-guide.md      (43 KB) - START HERE
+  2. chatgpt-image-prompting.md           (21 KB) - ChatGPT/DALL-E 3 specific
+  3. gemini-image-prompting.md            (29 KB) - Google Gemini specific
+  4. IMAGE-PROMPTING-README.md            (6 KB)  - Navigation index
+  5. QUICK-START.txt                      (this file)
+
+================================================================================
+WHAT'S INSIDE
+================================================================================
+
+✓ 15 Ready-to-Copy Prompt Templates
+  - 3 School Posters (vertical, print-ready)
+  - 2 WhatsApp Status (9:16 mobile vertical)
+  - 2 Proposal Slides (16:9 landscape)
+  - 2 Social Media (1:1 square, Instagram/Facebook)
+  - 2 Special Cases (diversity, test anxiety, teacher trust)
+  - 2 Multi-asset Campaigns (group meditation, community)
+
+✓ Complete Tool Comparison
+  - ChatGPT/DALL-E 3: Best for text-in-image, posters, final quality
+  - Google Gemini: Best for fast variants, Indian authenticity, consistency
+
+✓ Detailed Sections Covered
+  - Exact aspect ratios for every use (poster, status, proposal, social)
+  - Lighting specification (high-key, soft, window light, etc.)
+  - Color palette specification (soft white, sky blue, pale green, etc.)
+  - Photography styles (documentary, editorial, lifestyle)
+  - Illustration styles (watercolor, vector, acrylic, etc.)
+  - Indian cultural context and authenticity
+  - Text handling (when to include, when to add in Canva)
+  - Common failure modes and fixes
+  - Production checklists
+
+✓ Workflows & Processes
+  - 4-phase workflow (explore → refine → produce → polish)
+  - 5-step master workflow (plan → variants → refine → produce → polish)
+  - Iterative refinement strategies
+  - Reference image consistency techniques
+
+================================================================================
+QUICK START (5 MINUTES)
+================================================================================
+
+1. OPEN: image-prompting-master-guide.md
+2. SKIP TO: "Quick Start: Which Tool to Use?" section
+3. READ: Decision matrix (2 min)
+4. CHOOSE: ChatGPT or Gemini based on your needs
+5. PICK: One template from "Ready-to-Copy Templates" section
+6. COPY: Full template text
+7. PASTE: Into ChatGPT or Gemini
+8. GENERATE: Image
+9. IF WRONG: Check "Common Failure Modes & Solutions" table
+10. DONE: Export and add final text in Canva/Figma
+
+================================================================================
+TOOL SELECTION GUIDE
+================================================================================
+
+CHOOSE CHATGPT/DALL-E 3 IF:
+  ✓ Text placement in image is critical (posters with headlines)
+  ✓ You need maximum artistic control and precision
+  ✓ Complex poster layouts with multiple design elements
+  ✓ Final high-quality single asset more important than variants
+  ✓ Brand/character consistency without reference images
+
+CHOOSE GOOGLE GEMINI IF:
+  ✓ You want fast iteration (3-5 variants quickly)
+  ✓ Indian school authenticity is priority
+  ✓ Budget matters (Gemini cheaper for volume)
+  ✓ Reference image consistency across multiple assets
+  ✓ Conversational refinement preferred (interactive tweaks)
+
+================================================================================
+RECOMMENDED WORKFLOW
+================================================================================
+
+PHASE 1: EXPLORATION (Gemini Flash - cheapest, fastest)
+  - Generate 3-5 quick directions
+  - Test different moods, compositions, child ages
+  - Save all, select best direction
+  Time: ~10 min, Cost: ~$0.25
+
+PHASE 2: REFINEMENT (Gemini 3.1 or ChatGPT)
+  - Refine best variant
+  - Generate platform variants (square, status, slide, poster)
+  - Finalize palette and style
+  Time: ~15 min, Cost: ~$0.50-1.00
+
+PHASE 3: PRODUCTION (ChatGPT if text-heavy, Gemini if variants)
+  - Generate final approved versions
+  - Export at correct resolution
+  - Verify no watermarks/distortions
+  Time: ~10 min, Cost: ~$0.50-1.00
+
+PHASE 4: POLISH (Canva/Figma - 5 min)
+  - Open exported image in Canva
+  - Add final Marathi/English/Hindi text
+  - Export for distribution
+
+TOTAL TIME: 40-50 min per asset
+TOTAL COST: $1.25-2.50 per asset (or less with Gemini Flash throughout)
+
+================================================================================
+KEY SPECIFICATIONS
+================================================================================
+
+ASPECT RATIOS (Use These Exact Sizes):
+  School Poster:        1024 x 1536 (4:5, vertical, print)
+  WhatsApp Status:      1080 x 1920 (9:16, mobile vertical)
+  Proposal Slide:       1536 x 1024 (16:9, landscape)
+  Social Square:        1024 x 1024 (1:1, Instagram/Facebook)
+  Website Banner:       1536 x  672 (21:9, wide horizontal)
+
+STANDARD PALETTE (Always Use):
+  Soft white, sky blue, pale leaf green, warm cream, 
+  gentle yellow, natural wood tones
+
+STANDARD LIGHTING (Always Use):
+  Soft high-key natural daylight, gentle window light, 
+  no harsh shadows, innocent and peaceful mood
+
+STANDARD CONSTRAINTS (Always Include):
+  No religious symbols, no watermark, no exaggerated yoga poses,
+  authentic Indian school context, secular wellness program,
+  no mystical effects, trustworthy for administrators and parents
+
+================================================================================
+TEXT HANDLING RULE
+================================================================================
+
+DO NOT:
+  ✗ Include complex text in generated image
+  ✗ Rely on AI text rendering for accuracy
+  ✗ Expect perfect placement of text in image
+
+DO THIS INSTEAD:
+  ✓ Generate image WITHOUT text
+  ✓ Export clean background image
+  ✓ Open in Canva or Figma
+  ✓ Add final Marathi/English/Hindi text there
+  ✓ Perfect placement and legibility guaranteed
+
+Text Limit (if you must include in image): 25 characters, 1-2 words max
+
+================================================================================
+READY-TO-COPY TEMPLATE LOCATIONS
+================================================================================
+
+By Use Case:
+
+  SCHOOL POSTERS
+    → Master Guide: SET A (3 templates)
+    → Lines: Look for "A1 School Outreach Poster"
+
+  WHATSAPP STATUS (9:16 MOBILE)
+    → Master Guide: SET B (2 templates)
+    → Lines: Look for "B1 WhatsApp Status"
+
+  PROPOSAL SLIDES (16:9 LANDSCAPE)
+    → Master Guide: SET C (2 templates)
+    → Lines: Look for "C1 Proposal Slide Cover"
+
+  SOCIAL MEDIA (SQUARE, INSTAGRAM, FACEBOOK)
+    → Master Guide: SET D (2 templates)
+    → Lines: Look for "D1 Instagram Square"
+
+  SPECIAL CASES (DIVERSITY, TEST ANXIETY, TEACHER TRUST)
+    → Master Guide: SET E (2 templates)
+    → Lines: Look for "E1 Test Anxiety"
+
+================================================================================
+COMMON MISTAKES (How to Fix)
+================================================================================
+
+Image looks too spiritual/religious:
+  → Add to prompt: "secular school wellness program", 
+    "no religious symbols", "science-informed meditation"
+
+Image looks too stock photo / glamorous:
+  → Add to prompt: "candid unposed", "honest faces", 
+    "real classroom", "imperfect details", "authentic"
+
+Text is misspelled or broken:
+  → Solution: Don't use in-image text, add in Canva instead
+
+Image lacks Indian school context:
+  → Add to prompt: "authentic Indian school classroom", 
+    name specific details (uniforms, desks, materials)
+
+Hands look distorted:
+  → Keep hands simple, in background, or avoid close-ups
+
+Lighting too dark:
+  → Add: "high-key bright", "no shadows", "innocent mood"
+
+================================================================================
+FILE LOCATIONS
+================================================================================
+
+All guides stored in:
+  /home/pranav/sahajyoga/research/
+
+Files:
+  - image-prompting-master-guide.md       (main reference)
+  - chatgpt-image-prompting.md            (ChatGPT specific)
+  - gemini-image-prompting.md             (Gemini specific)
+  - IMAGE-PROMPTING-README.md             (navigation index)
+  - QUICK-START.txt                       (this file)
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. OPEN: image-prompting-master-guide.md
+2. READ: "Quick Start" section (5 min)
+3. PICK: Template from "Ready-to-Copy Templates" section
+4. COPY: Template prompt (exact text)
+5. PASTE: Into ChatGPT or Gemini
+6. GENERATE: Image (5-10 min)
+7. CHECK: Against "Production Checklist" section
+8. POLISH: Add text in Canva/Figma
+9. EXPORT: Ready to share with schools/stakeholders
+10. DONE: Celebrate!
+
+================================================================================
+CONTACT & SUPPORT
+================================================================================
+
+If results are off:
+  → Check "Common Failure Modes & Solutions" table
+  → Verify against "Production Checklist"
+  → Re-read tool-specific guide (ChatGPT or Gemini)
+  → Try different tool (if one isn't working, switch to other)
+
+For detailed guidance:
+  → Refer to complete guides in /home/pranav/sahajyoga/research/
+  → IMAGE-PROMPTING-README.md has detailed navigation by question/use-case
+
+================================================================================
+KEY TAKEAWAY
+================================================================================
+
+These guides teach you to:
+  ✓ Choose the right tool for your need (ChatGPT vs Gemini)
+  ✓ Write effective prompts for school outreach
+  ✓ Handle text correctly (in Canva, not in image)
+  ✓ Maintain Indian school authenticity
+  ✓ Build trust with principals, teachers, parents
+  ✓ Generate multiple variants quickly
+  ✓ Avoid common mistakes
+  ✓ Produce professional, ready-to-share assets
+
+All guides are tailored specifically for:
+  - Sahaja Yoga school outreach
+  - Indian school context and authenticity
+  - Secular, science-based framing
+  - School administrator and parent trust
+  - Marathi/English/Hindi school environments
+
+================================================================================
+CREATED: 2026-05-16
+VERIFIED: Current best practices for ChatGPT (gpt-image-2), 
+          Gemini (3.1 Flash/Pro), Imagen (3-4)
+================================================================================

@@ -1,0 +1,8 @@
+SOURCE: https://www.amruta.org/test
+DATE: 2001-08-02
+LOCATION/EVENT: test-location
+SAVED: 2026-05-16 13:37:49
+CHARS: 133
+---
+
+This is a test talk content that is long enough to pass validation checks for the Sahaja Yoga talk saver tool being tested right now.
