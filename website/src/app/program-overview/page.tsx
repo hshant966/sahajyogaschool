@@ -109,7 +109,7 @@ export default function ProgramOverview() {
                     ADHD — Children's Concentration Study (6-week program)
                   </p>
                   <p className="text-xs text-[#6B7280] leading-relaxed mt-0.5">
-                    6 weeks of Sahaja Yoga meditation with parents produced significant improvement in ADHD symptoms in children — effect comparable to Ritalin medication, but with zero side effects. Most children were able to reduce or stop medication while still improving.
+                    A 6-week family-oriented program with parents reported significant improvements in ADHD-related behavior, concentration, sleep, anxiety, and family relationships. Published in Clinical Child Psychology &amp; Psychiatry (2004). No adverse effects reported.
                   </p>
                 </div>
               </div>
