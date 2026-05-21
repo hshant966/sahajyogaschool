@@ -22,7 +22,7 @@ const pillars = [
     number: "02",
     label: "Science",
     heading: "Validated by research",
-    body: "EEG and fMRI studies at King's College London confirm measurable brain changes. Theta wave activity increases. Cortisol drops. Prefrontal activation strengthens. These are not anecdotes.",
+    body: "Brain and Behavior (2019): 4-week training produces measurable changes in executive-control brain regions. PLOS ONE (2020): Long-term practitioners show ~6.9% larger gray matter volume. 30+ PubMed-indexed studies.",
     accent: "#C9A84C",
   },
   {
@@ -93,8 +93,8 @@ export default function WhatIsSahajYoga() {
             </p>
             <div className="mt-6 flex gap-6">
               <div>
-                <p className="font-serif text-4xl font-bold text-[#C9A84C]">50+</p>
-                <p className="text-xs text-[#9CA3AF] uppercase tracking-wide mt-1">Peer-reviewed studies</p>
+                <p className="font-serif text-4xl font-bold text-[#C9A84C]">30+</p>
+                <p className="text-xs text-[#9CA3AF] uppercase tracking-wide mt-1">PubMed-indexed studies</p>
               </div>
               <div className="w-px bg-[#E5E5E0]" />
               <div>

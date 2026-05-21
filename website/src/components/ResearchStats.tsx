@@ -14,29 +14,29 @@ const stats = [
   {
     value: "6",
     unit: "Weeks",
-    description: "Same improvement in student focus as ADHD medication",
-    citation: "King's College London, 2011",
+    description: "Family program for children with ADHD showed measurable improvements in concentration, sleep, anxiety, and behavior",
+    citation: "Clin. Child Psych. & Psychiatry, 2004",
     color: "#C9A84C",
   },
   {
-    value: "50+",
+    value: "30+",
     unit: "Studies",
-    description: "Peer-reviewed research published in international journals",
-    citation: "PubMed & NIH indexed",
+    description: "PubMed-indexed peer-reviewed studies on neurological and psychological effects",
+    citation: "NCBI PubMed, 2026",
     color: "#52B788",
   },
   {
     value: "39,603",
     unit: "Schools",
-    description: "Approved by Telangana State Government, India",
+    description: "Approved by Telangana State Government for school implementation",
     citation: "Govt. of Telangana, 2023",
     color: "#C9A84C",
   },
   {
-    value: "120+",
-    unit: "Countries",
-    description: "Countries where Sahaja Yoga is practiced and studied",
-    citation: "International Research",
+    value: "4",
+    unit: "Weeks",
+    description: "Brief training shows measurable changes in executive-control brain regions linked to attention and self-control",
+    citation: "Brain and Behavior, 2019",
     color: "#52B788",
   },
 ];
@@ -81,7 +81,7 @@ export default function ResearchStats() {
           </div>
           <div className="lg:col-span-3">
             <p className="text-[#B7E4C7] text-lg leading-relaxed">
-              Independent research institutions across 6 countries have published peer-reviewed studies on the neurological and psychological effects of Sahaja Yoga meditation. The evidence is consistent and reproducible.
+              30+ PubMed-indexed studies from King's College London, Delhi University, AIIMS, and institutions across Europe and Australia. Brain changes confirmed via MRI and EEG. Results are consistent and reproducible.
             </p>
           </div>
         </div>
@@ -124,7 +124,7 @@ export default function ResearchStats() {
         </div>
 
         <p className="mt-10 text-center text-[#6B7280] text-sm">
-          Research conducted at King's College London, Delhi University, AIIMS, University of Exeter, and institutions across Europe and Australia.
+          Studies published in Brain and Behavior, PLOS ONE, Clinical Child Psychology &amp; Psychiatry, Journal of Alternative and Complementary Medicine, and Scientific Reports.
         </p>
       </div>
     </section>
