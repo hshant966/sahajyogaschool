@@ -5,6 +5,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, easeOut } from "framer-motion";
+import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,6 +36,8 @@ const pillars = [
 
 export default function WhatIsSahajYoga() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const t = translations[lang];
 
   useGSAP(
     () => {
@@ -75,17 +79,17 @@ export default function WhatIsSahajYoga() {
         <div data-heading className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-end">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-              What is Sahaja Yoga
+              {t.whatIs.label}
             </span>
             <h2 className="font-serif text-5xl lg:text-6xl font-semibold text-[#0F2A1E] mt-3 leading-tight">
-              Not a religion.
+              {t.whatIs.headline1}
               <br />
-              <span className="text-[#52B788]">A science.</span>
+              <span className="text-[#52B788]">{t.whatIs.headline2}</span>
             </h2>
           </div>
           <div>
             <p className="text-[#6B7280] text-lg leading-relaxed">
-              Sahaja Yoga is a meditation technique validated by peer-reviewed research across 6 countries. No belief required. No fees. No dogma. Only measurable neurological outcomes.
+              {t.whatIs.sub}
             </p>
             <div className="mt-6 flex gap-6">
               <div>
@@ -143,8 +147,7 @@ export default function WhatIsSahajYoga() {
         {/* Pull quote */}
         <div className="mt-20 py-12 border-y border-[#E5E5E0] text-center">
           <p className="font-serif text-3xl lg:text-4xl text-[#0F2A1E] max-w-3xl mx-auto leading-snug italic">
-            "No fees. No religion. No dogma.{" "}
-            <span className="text-[#C9A84C]">Just results.</span>"
+            {t.whatIs.quote}
           </p>
         </div>
       </div>

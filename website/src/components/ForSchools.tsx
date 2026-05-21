@@ -133,10 +133,15 @@ export default function ForSchools() {
               Request a Free Session
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <button className="px-8 py-4 rounded-full border-2 border-[#2D6A4F] text-[#B7E4C7] font-semibold hover:border-[#52B788] hover:text-white transition-colors flex items-center gap-2">
+            <a
+              href="/program-overview"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full border-2 border-[#2D6A4F] text-[#B7E4C7] font-semibold hover:border-[#52B788] hover:text-white transition-colors flex items-center gap-2"
+            >
               <Download className="w-5 h-5" />
               Download Program Overview
-            </button>
+            </a>
           </div>
         </div>
       </div>

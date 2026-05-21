@@ -1,3 +1,8 @@
+"use client";
+
+import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
+
 const footerLinks = [
   { label: "Research", href: "#research" },
   { label: "Benefits", href: "#benefits" },
@@ -16,6 +21,8 @@ const institutions = [
 ];
 
 export default function Footer() {
+  const { lang } = useLang();
+  const t = translations[lang];
   return (
     <footer className="w-full bg-[#0F2A1E] text-white">
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-16 py-16">
@@ -31,7 +38,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[#B7E4C7] text-sm leading-relaxed max-w-xs">
-              Science-backed meditation for schools. 100% free. Non-religious. Government approved.
+              {t.footer.tagline}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {["100% Free", "Non-Religious", "Govt. Approved"].map((b) => (

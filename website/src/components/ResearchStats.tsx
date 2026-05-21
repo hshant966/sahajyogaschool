@@ -5,6 +5,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, easeOut } from "framer-motion";
+import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,6 +43,8 @@ const stats = [
 
 export default function ResearchStats() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const t = translations[lang];
 
   useGSAP(
     () => {
@@ -69,10 +73,10 @@ export default function ResearchStats() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start mb-16">
           <div className="lg:col-span-2">
             <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-              Evidence-based
+              {t.stats.label}
             </span>
             <h2 className="font-serif text-5xl lg:text-6xl font-semibold text-white mt-3 leading-tight">
-              What the research shows
+              {t.stats.heading}
             </h2>
           </div>
           <div className="lg:col-span-3">

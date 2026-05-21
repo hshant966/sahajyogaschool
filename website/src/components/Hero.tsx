@@ -3,6 +3,8 @@
 import { Suspense, lazy, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +15,8 @@ export default function Hero() {
   const contentRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const t = translations[lang];
 
   useEffect(() => {
     const video = videoRef.current;
@@ -106,9 +110,9 @@ export default function Hero() {
           className="w-full max-w-7xl mx-auto px-6 lg:px-16 flex flex-col justify-center gap-7"
         >
           {/* Label */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-              Peer-reviewed research
+              {t.hero.label}
             </span>
             <div className="w-2 h-2 rounded-full bg-[#52B788]" />
           </div>
@@ -125,15 +129,27 @@ export default function Hero() {
           {/* Subline with gold accent */}
           <div className="flex flex-col gap-3">
             <p className="text-base lg:text-lg italic text-[#C9A84C]">
-              Proven by King's College London · NIH Washington DC · Delhi University
+              {t.hero.subline}
             </p>
             <div className="w-16 h-0.5 bg-[#C9A84C]" />
           </div>
 
+          {/* Credential bar */}
+          <a
+            href="#gov"
+            className="inline-flex items-center gap-2 text-xs text-[#6B7280] hover:text-[#0F2A1E] transition-colors group w-fit"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] flex-shrink-0" />
+            <span className="font-mono">
+              Pune Zilla Parishad authorized · Ref: जा.क्र. जिप/शिक्षण/प्राथ.२/यो-१४५/१३२४/२०२४
+            </span>
+            <span className="text-[#C9A84C] group-hover:translate-x-0.5 transition-transform">↗</span>
+          </a>
+
           {/* Body */}
           <p className="text-base lg:text-lg leading-relaxed text-[#6B7280] max-w-lg">
-            6 weeks of Sahaja Yoga meditation produces the same improvement in
-            children's focus as ADHD medication — with zero side effects.
+            {t.hero.body}{" "}
+            <span className="text-[#0F2A1E] font-medium">Authorized for schools and colleges. Zero cost. Zero religion.</span>
           </p>
 
           {/* CTAs */}
@@ -142,19 +158,19 @@ export default function Hero() {
               href="#research"
               className="px-6 py-3 rounded-full border-2 border-[#52B788] text-[#52B788] font-medium hover:bg-[#52B788] hover:text-white transition-all"
             >
-              See the Research
+              {t.hero.ctaPrimary}
             </a>
             <a
               href="#contact"
               className="px-6 py-3 rounded-full bg-[#0F2A1E] text-white font-medium hover:bg-[#2D6A4F] transition-colors"
             >
-              Request a Free Session
+              {t.hero.ctaSecondary}
             </a>
           </div>
 
           {/* Trust pills — premium styling */}
           <div className="flex flex-wrap gap-3">
-            {["92 Countries", "100% Free", "Non-Religious", "Govt. Approved"].map((t) => (
+            {["King's College London", "NIH Funded", "Govt. Authorized", "Schools & Colleges"].map((t) => (
               <span
                 key={t}
                 className="px-4 py-1.5 rounded-full bg-white border-2 border-[#52B788] text-[#0F2A1E] text-xs font-medium shadow-sm hover:shadow-md transition-shadow"

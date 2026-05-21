@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import { CheckCircle } from "lucide-react";
+import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function CTAForm() {
+  const { lang } = useLang();
+  const t = translations[lang];
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -44,13 +48,13 @@ export default function CTAForm() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-            Free program
+            {t.cta.label}
           </span>
           <h2 className="font-serif text-4xl lg:text-5xl font-semibold text-white mt-3">
-            Bring this to your school
+            {t.cta.heading}
           </h2>
           <p className="text-[#B7E4C7] mt-4 text-lg">
-            Join 39,603+ schools across India. No cost. No obligations.
+            {t.cta.sub}
           </p>
         </div>
 
@@ -58,10 +62,10 @@ export default function CTAForm() {
           <div className="bg-[#1a3d2b] rounded-2xl p-12 text-center border border-[#2D6A4F]">
             <CheckCircle className="w-12 h-12 text-[#52B788] mx-auto mb-4" />
             <h3 className="font-serif text-2xl text-white mb-2">
-              Request received
+              {t.cta.success}
             </h3>
             <p className="text-[#B7E4C7]">
-              Our volunteer coordinator will contact you within 24 hours.
+              {t.cta.successSub}
             </p>
           </div>
         ) : (
@@ -183,11 +187,11 @@ export default function CTAForm() {
               type="submit"
               className="mt-8 w-full py-4 rounded-full bg-[#C9A84C] text-[#0F2A1E] font-semibold text-base hover:bg-[#F0D98D] transition-colors"
             >
-              Schedule Our Free Session
+              {t.cta.submit}
             </button>
 
             <p className="mt-4 text-center text-xs text-[#9CA3AF]">
-              No spam. Our volunteer coordinator contacts you within 24 hours.
+              {t.cta.privacy}
             </p>
 
             {/* Trust badges */}
