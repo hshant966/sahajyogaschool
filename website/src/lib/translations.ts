@@ -45,6 +45,7 @@ type TranslationShape = {
     headline2: string;
     sub: string;
     quote: string;
+    quoteAccent: string;
   };
   stats: {
     label: string;
@@ -85,7 +86,8 @@ const en: TranslationShape = {
     headline1: "Not a religion.",
     headline2: "A science.",
     sub: "Sahaja Yoga is a meditation technique now validated by peer-reviewed research across 6 countries. No belief required. No fees. No dogma.",
-    quote: "No fees. No religion. No dogma. Just results.",
+    quote: "No fees. No religion. No dogma.",
+    quoteAccent: "Just results.",
   },
   stats: {
     label: "Evidence-based",
@@ -126,7 +128,8 @@ const mr: TranslationShape = {
     headline1: "धर्म नाही.",
     headline2: "विज्ञान आहे.",
     sub: "सहज योग ही एक ध्यान पद्धती आहे जी ६ देशांमधील समीक्षित संशोधनाने मान्यताप्राप्त आहे. कोणतीही श्रद्धा आवश्यक नाही. कोणतेही शुल्क नाही. कोणताही धर्म नाही.",
-    quote: "शुल्क नाही. धर्म नाही. मतप्रणाली नाही. फक्त परिणाम.",
+    quote: "शुल्क नाही. धर्म नाही. मतप्रणाली नाही.",
+    quoteAccent: "फक्त परिणाम.",
   },
   stats: {
     label: "पुराव्यावर आधारित",
@@ -167,7 +170,8 @@ const hi: TranslationShape = {
     headline1: "धर्म नहीं।",
     headline2: "विज्ञान है।",
     sub: "सहज योग एक ध्यान तकनीक है जो ६ देशों में समीक्षित अनुसंधान द्वारा मान्यता प्राप्त है। कोई विश्वास आवश्यक नहीं। कोई शुल्क नहीं। कोई मत नहीं।",
-    quote: "कोई शुल्क नहीं। कोई धर्म नहीं। कोई मत नहीं। सिर्फ परिणाम।",
+    quote: "कोई शुल्क नहीं। कोई धर्म नहीं। कोई मत नहीं।",
+    quoteAccent: "सिर्फ परिणाम।",
   },
   stats: {
     label: "साक्ष्य-आधारित",

@@ -134,7 +134,7 @@ export default function ForSchools() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="/program-overview"
+              href="https://www.scribd.com/document/871535582/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-full border-2 border-[#2D6A4F] text-[#B7E4C7] font-semibold hover:border-[#52B788] hover:text-white transition-colors flex items-center gap-2"

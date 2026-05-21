@@ -147,7 +147,8 @@ export default function WhatIsSahajYoga() {
         {/* Pull quote */}
         <div className="mt-20 py-12 border-y border-[#E5E5E0] text-center">
           <p className="font-serif text-3xl lg:text-4xl text-[#0F2A1E] max-w-3xl mx-auto leading-snug italic">
-            {t.whatIs.quote}
+            {t.whatIs.quote}{" "}
+            <span className="text-[#C9A84C]">{t.whatIs.quoteAccent}</span>
           </p>
         </div>
       </div>
