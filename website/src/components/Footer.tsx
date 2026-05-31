@@ -10,15 +10,35 @@ const footerLinks = [
   { labelKey: "contact" as const, href: "#contact" },
 ];
 
-const institutions = [
-  "King's College London",
-  "National Institutes of Health, USA",
-  "University of Exeter, UK",
-  "Delhi University",
-  "Philadelphia University",
-  "Washington University",
-  "Belapur Medical Research Center, India",
-];
+const LOCALIZED_INSTITUTIONS: Record<string, string[]> = {
+  en: [
+    "King's College London",
+    "National Institutes of Health, USA",
+    "University of Exeter, UK",
+    "Delhi University",
+    "Philadelphia University",
+    "Washington University",
+    "Belapur Medical Research Center, India",
+  ],
+  mr: [
+    "किंग्ज कॉलेज लंडन",
+    "नॅशनल इन्स्टिट्यूट्स ऑफ हेल्थ, अमेरिका",
+    "युनिव्हर्सिटी ऑफ एक्सेटर, युनायटेड किंगडम",
+    "दिल्ली विद्यापीठ",
+    "फिलाडेल्फिया युनिव्हर्सिटी",
+    "वाशिंग्टन युनिव्हर्सिटी",
+    "बेलापूर मेडिकल रिसर्च सेंटर, भारत",
+  ],
+  hi: [
+    "किंग्स कॉलेज लंदन",
+    "नेशनल इंस्टीट्यूट्स ऑफ हेल्थ, अमेरिका",
+    "यूनिवर्सिटी ऑफ एक्सेटर, यूके",
+    "दिल्ली विश्वविद्यालय",
+    "फिलाडेल्फिया विश्वविद्यालय",
+    "वाशिंगटन विश्वविद्यालय",
+    "बेलापुर मेडिकल रिसर्च सेंटर, भारत",
+  ]
+};
 
 const LOCALIZED_LABELS: Record<string, { nav: string; inst: string; free: string; noRel: string; govt: string }> = {
   en: { nav: "Navigation", inst: "Research Institutions", free: "100% Free", noRel: "Non-Religious", govt: "Govt. Approved" },
@@ -30,6 +50,7 @@ export default function Footer() {
   const { lang } = useLang();
   const t = translations[lang];
   const labels = LOCALIZED_LABELS[lang] || LOCALIZED_LABELS["en"];
+  const institutions = LOCALIZED_INSTITUTIONS[lang] || LOCALIZED_INSTITUTIONS["en"];
 
   return (
     <footer className="w-full bg-[#0F2A1E] text-white">

@@ -50,17 +50,88 @@ const successSubtitles: Record<Lang, string> = {
   sa: "अस्माकं स्वयंसेवक-संयोजकः २४ होराभ्यन्तरे भवता सह सम्पर्कं करिष्यति।",
   kok: "आमचो स्वयंसेवक समन्वयक २४ वरांभितर तुमचे कडेन संपर्क सादटलो.",
   ne: "हाम्रा स्वयंसेवक संयोजकले २४ घण्टाभित्र तपाईंसँग सम्पर्क गर्नेछन्।",
-  sd: "اسان جو رضاڪار ڪوآرڊينيٽر 24 ڪلاڪن اندر اوهان سان رابطو ڪندو.",
+  sd: "اسان جو رضاڪار ڪوآرڊينيٹر 24 ڪلاڪن اندر اوهان سان رابطو ڪندو.",
   doi: "साडे वालंटियर कोआर्डिनेटर २४ घंटें दे अंदर तुंदे कन्नै संपर्क करन।",
   mni: "ঐখোয়গী ভলুন্তিয়র কোওর্দিনেটরনা পুং ২৪ গী মনুংদা অদোমগা কন্ট্যাক্ট তৌরকখিগনি।",
-  sat: "ᱟᱵᱚᱨᱮᱱ ᱵᱷᱚᱞᱚᱱᱴᱤᱭᱟᱹ ᱠᱚᱣᱳᱨᱰᱤᱱᱮᱴᱚᱨ ᱒᱔ ᱴᱟᱲᱟᱝ (ᱜᱷᱚᱱᱴᱟ) ᱢᱩᱫᱽ ᱨᱮ ᱡᱚᱜᱟᱡᱚᱜᱽ ᱟᱢᱟ।",
+  sat: "ᱟᱵᱚᱨᱮᱱ ᱵᱷᱚᱞᱚᱱᱴᱤᱭᱟᱹ ᱠᱚᱣᱳᱨᱰᱤᱱᱮᱴᱚᱨ ᱒૪ ᱴᱟᱲᱟᱝ (ᱜᱷᱚᱱᱴᱟ) ᱢᱩᱫᱽ ᱨᱮ ᱡᱚᱜᱟᱡᱚᱜᱽ ᱟᱢᱟ।",
   ks: "سہند رضاکار کوآرڈینیٹر کرنہ 24 گھنٹن اندر تہہ سٟتؠ رابطہ۔",
   brx: "जोंनि स्वयंसेवक संयाजकआ २४ घन्टानि गेजेराव नोंथां जों योगायोग खालामगोन।"
+};
+
+const LOCALIZED_FORM: Record<string, {
+  contactNameLabel: string;
+  schoolNameLabel: string;
+  cityLabel: string;
+  cityPlaceholder: string;
+  phoneLabel: string;
+  emailLabel: string;
+  studentsLabel: string;
+  selectRange: string;
+  under200: string;
+  range200to500: string;
+  range500to1000: string;
+  range1000plus: string;
+  errorRequired: string;
+  errorPhone: string;
+  trustBadges: string[];
+}> = {
+  en: {
+    contactNameLabel: "Principal / Contact Name *",
+    schoolNameLabel: "School Name *",
+    cityLabel: "City / District *",
+    cityPlaceholder: "City or district",
+    phoneLabel: "Phone Number *",
+    emailLabel: "Email (optional)",
+    studentsLabel: "Number of Students *",
+    selectRange: "Select range",
+    under200: "Under 200",
+    range200to500: "200 – 500",
+    range500to1000: "500 – 1000",
+    range1000plus: "1000+",
+    errorRequired: "Required",
+    errorPhone: "Enter valid 10-digit number",
+    trustBadges: ["100% Free", "No Dogma", "Non-Religious", "Govt. Approved"]
+  },
+  mr: {
+    contactNameLabel: "प्राचार्य / संपर्क व्यक्तीचे नाव *",
+    schoolNameLabel: "शाळेचे नाव *",
+    cityLabel: "शहर / जिल्हा *",
+    cityPlaceholder: "शहर किंवा जिल्हा प्रविष्ट करा",
+    phoneLabel: "फोन नंबर *",
+    emailLabel: "ईमेल (पर्यायी)",
+    studentsLabel: "विद्यार्थ्यांची संख्या *",
+    selectRange: "विद्यार्थी संख्या निवडा",
+    under200: "२०० पेक्षा कमी",
+    range200to500: "२०० – ५००",
+    range500to1000: "५०० – १०००",
+    range1000plus: "१०००+",
+    errorRequired: "आवश्यक आहे",
+    errorPhone: "वैध १०-अंकी फोन नंबर प्रविष्ट करा",
+    trustBadges: ["१००% मोफत", "कोणतीही अंधश्रद्धा नाही", "धर्मनिरपेक्ष", "शासनमान्य"]
+  },
+  hi: {
+    contactNameLabel: "प्राचार्य / संपर्क व्यक्ति का नाम *",
+    schoolNameLabel: "विद्यालय का नाम *",
+    cityLabel: "शहर / जिला *",
+    cityPlaceholder: "शहर या जिला दर्ज करें",
+    phoneLabel: "फोन नंबर *",
+    emailLabel: "ईमेल (वैकल्पिक)",
+    studentsLabel: "छात्रों की संख्या *",
+    selectRange: "छात्र संख्या चुनें",
+    under200: "२०० से कम",
+    range200to500: "२०० – ५००",
+    range500to1000: "५०० – १०००",
+    range1000plus: "१०००+",
+    errorRequired: "आवश्यक है",
+    errorPhone: "वैध १०-अंकीय फोन नंबर दर्ज करें",
+    trustBadges: ["१००% निःशुल्क", "कोई अंधविश्वास नहीं", "धर्मनिरपेक्ष", "शासकीय स्वीकृत"]
+  }
 };
 
 export default function CTAForm() {
   const { lang } = useLang();
   const t = translations[lang];
+  const f = LOCALIZED_FORM[lang] || LOCALIZED_FORM["en"];
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
@@ -75,11 +146,11 @@ export default function CTAForm() {
 
   const validate = () => {
     const e: Record<string, string> = {};
-    if (!form.name.trim()) e.name = "Required";
-    if (!form.school.trim()) e.school = "Required";
-    if (!form.city.trim()) e.city = "Required";
-    if (!/^\d{10}$/.test(form.phone)) e.phone = "Enter valid 10-digit number";
-    if (!form.students) e.students = "Required";
+    if (!form.name.trim()) e.name = f.errorRequired;
+    if (!form.school.trim()) e.school = f.errorRequired;
+    if (!form.city.trim()) e.city = f.errorRequired;
+    if (!/^\d{10}$/.test(form.phone)) e.phone = f.errorPhone;
+    if (!form.students) e.students = f.errorRequired;
     return e;
   };
 
@@ -133,7 +204,7 @@ export default function CTAForm() {
               {/* Name */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-[#1C1917]">
-                  Principal / Contact Name *
+                  {f.contactNameLabel}
                 </label>
                 <input
                   type="text"
@@ -150,7 +221,7 @@ export default function CTAForm() {
               {/* School */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-[#1C1917]">
-                  School Name *
+                  {f.schoolNameLabel}
                 </label>
                 <input
                   type="text"
@@ -167,14 +238,14 @@ export default function CTAForm() {
               {/* City */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-[#1C1917]">
-                  City / District *
+                  {f.cityLabel}
                 </label>
                 <input
                   type="text"
                   value={form.city}
                   onChange={(e) => setForm({ ...form, city: e.target.value })}
                   className="rounded-lg border border-[#E5E5E0] px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#52B788]"
-                  placeholder="City or district"
+                  placeholder={f.cityPlaceholder}
                 />
                 {errors.city && (
                   <span className="text-red-500 text-xs">{errors.city}</span>
@@ -184,7 +255,7 @@ export default function CTAForm() {
               {/* Phone */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-[#1C1917]">
-                  Phone Number *
+                  {f.phoneLabel}
                 </label>
                 <input
                   type="tel"
@@ -202,7 +273,7 @@ export default function CTAForm() {
               {/* Email */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-[#1C1917]">
-                  Email (optional)
+                  {f.emailLabel}
                 </label>
                 <input
                   type="email"
@@ -216,7 +287,7 @@ export default function CTAForm() {
               {/* Students */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-[#1C1917]">
-                  Number of Students *
+                  {f.studentsLabel}
                 </label>
                 <select
                   value={form.students}
@@ -225,11 +296,11 @@ export default function CTAForm() {
                   }
                   className="rounded-lg border border-[#E5E5E0] px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#52B788] bg-white"
                 >
-                  <option value="">Select range</option>
-                  <option value="under200">Under 200</option>
-                  <option value="200-500">200 – 500</option>
-                  <option value="500-1000">500 – 1000</option>
-                  <option value="1000+">1000+</option>
+                  <option value="">{f.selectRange}</option>
+                  <option value="under200">{f.under200}</option>
+                  <option value="200-500">{f.range200to500}</option>
+                  <option value="500-1000">{f.range500to1000}</option>
+                  <option value="1000+">{f.range1000plus}</option>
                 </select>
                 {errors.students && (
                   <span className="text-red-500 text-xs">
@@ -249,7 +320,7 @@ export default function CTAForm() {
 
             {/* Trust badges */}
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              {["100% Free", "No Dogma", "Non-Religious", "Govt. Approved"].map(
+              {f.trustBadges.map(
                 (b) => (
                   <span
                     key={b}

@@ -11,13 +11,49 @@ interface PlaylistVideo {
   videoId: string;
 }
 
-const playlistVideos: PlaylistVideo[] = [
-  { part: 2, title: "Body", videoId: "M1_RrUGmNlk" },
-  { part: 3, title: "The Brain", videoId: "3loz19_PUeU" },
-  { part: 4, title: "Health", videoId: "xscl5M8xuUg" },
-  { part: 5, title: "Illness", videoId: "yumnEGS-1oc" },
-  { part: 6, title: "Conclusions", videoId: "VDgTAVUOc6A" },
-];
+const LOCALIZED_VIDEO_DATA: Record<string, {
+  part1Title: string;
+  continueText: string;
+  channelNote: string;
+  playlist: { part: number; title: string; videoId: string }[];
+}> = {
+  en: {
+    part1Title: "Part 1: Introduction",
+    continueText: "Continue the series",
+    channelNote: "All videos from the official Shri Mataji Nirmala Devi YouTube channel",
+    playlist: [
+      { part: 2, title: "Body", videoId: "M1_RrUGmNlk" },
+      { part: 3, title: "The Brain", videoId: "3loz19_PUeU" },
+      { part: 4, title: "Health", videoId: "xscl5M8xuUg" },
+      { part: 5, title: "Illness", videoId: "yumnEGS-1oc" },
+      { part: 6, title: "Conclusions", videoId: "VDgTAVUOc6A" },
+    ]
+  },
+  mr: {
+    part1Title: "भाग १: परिचय",
+    continueText: "मालिका पुढे पहा",
+    channelNote: "सर्व व्हिडिओ अधिकृत श्री माताजी निर्मला देवी युट्यूब चॅनेलवरून घेतलेले आहेत",
+    playlist: [
+      { part: 2, title: "शरीर", videoId: "M1_RrUGmNlk" },
+      { part: 3, title: "मेंदू", videoId: "3loz19_PUeU" },
+      { part: 4, title: "आरोग्य", videoId: "xscl5M8xuUg" },
+      { part: 5, title: "आजारपण", videoId: "yumnEGS-1oc" },
+      { part: 6, title: "निष्कर्ष", videoId: "VDgTAVUOc6A" },
+    ]
+  },
+  hi: {
+    part1Title: "भाग १: परिचय",
+    continueText: "श्रृंखला जारी रखें",
+    channelNote: "सभी वीडियो आधिकारिक श्री माताजी निर्मला देवी यूट्यूब चैनल से लिए गए हैं",
+    playlist: [
+      { part: 2, title: "शरीर", videoId: "M1_RrUGmNlk" },
+      { part: 3, title: "मस्तिष्क", videoId: "3loz19_PUeU" },
+      { part: 4, title: "स्वास्थ्य", videoId: "xscl5M8xuUg" },
+      { part: 5, title: "बीमारी", videoId: "yumnEGS-1oc" },
+      { part: 6, title: "निष्कर्ष", videoId: "VDgTAVUOc6A" },
+    ]
+  }
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,6 +78,7 @@ const itemVariants = {
 export default function VideoSection() {
   const { lang } = useLang();
   const t = translations[lang];
+  const vData = LOCALIZED_VIDEO_DATA[lang] || LOCALIZED_VIDEO_DATA["en"];
 
   return (
     <section className="w-full bg-[#0F2A1E] py-24">
@@ -94,20 +131,20 @@ export default function VideoSection() {
             <div className="aspect-video">
               <iframe
                 src="https://www.youtube-nocookie.com/embed/nIdgQ-xAXEw?controls=1&modestbranding=1&rel=0"
-                title="Part 1: Introduction"
+                title={vData.part1Title}
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
           </div>
-          <p className="text-center text-white mt-4 font-medium">Part 1: Introduction</p>
+          <p className="text-center text-white mt-4 font-medium">{vData.part1Title}</p>
         </motion.div>
 
         {/* Playlist Grid */}
         <div>
           <h3 className="text-white text-lg font-semibold mb-6">
-            Continue the series
+            {vData.continueText}
           </h3>
           <motion.div
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
@@ -116,7 +153,7 @@ export default function VideoSection() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {playlistVideos.map((video) => (
+            {vData.playlist.map((video) => (
               <motion.a
                 key={video.videoId}
                 href={`https://www.youtube.com/watch?v=${video.videoId}`}
@@ -165,7 +202,7 @@ export default function VideoSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          All videos from the official Shri Mataji Nirmala Devi YouTube channel
+          {vData.channelNote}
         </motion.p>
       </div>
     </section>

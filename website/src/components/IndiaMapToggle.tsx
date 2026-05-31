@@ -6,6 +6,27 @@ import { translations } from "@/lib/translations";
 import type { Lang } from "@/lib/translations";
 import { Globe, X } from "lucide-react";
 
+const LOCALIZED_MAP: Record<string, { title: string; subtitle: string; hoverHelp: string; selectTitle: string }> = {
+  en: {
+    title: "Regional Language Map",
+    subtitle: "Click a state to select its language",
+    hoverHelp: "Hover over states to view names",
+    selectTitle: "Select Language for",
+  },
+  mr: {
+    title: "प्रादेशिक भाषा नकाशा",
+    subtitle: "भाषा निवडण्यासाठी राज्यावर क्लिक करा",
+    hoverHelp: "नाव पाहण्यासाठी राज्यावर माउस न्या",
+    selectTitle: "साठी भाषा निवडा -",
+  },
+  hi: {
+    title: "क्षेत्रीय भाषा मानचित्र",
+    subtitle: "भाषा चुनने के लिए राज्य पर क्लिक करें",
+    hoverHelp: "नाम देखने के लिए राज्यों पर माउस घुमाएँ",
+    selectTitle: "के लिए भाषा चुनें -",
+  },
+};
+
 const liveLangs: { code: Lang; label: string; native: string }[] = [
   { code: "en", label: "English", native: "EN" },
   { code: "mr", label: "Marathi", native: "मराठी" },
@@ -136,6 +157,7 @@ export default function IndiaMapToggle() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const t = translations[lang];
+  const mapLabels = LOCALIZED_MAP[lang] || LOCALIZED_MAP["en"];
 
   // Disable scroll when modal is open
   useEffect(() => {
@@ -279,10 +301,10 @@ export default function IndiaMapToggle() {
               </div>
               <div>
                 <h3 className="font-serif text-lg font-semibold text-white">
-                  Regional Language Map
+                  {mapLabels.title}
                 </h3>
                 <p className="text-xs text-[#B7E4C7]/80">
-                  Click a state to select its language
+                  {mapLabels.subtitle}
                 </p>
               </div>
             </div>
@@ -309,7 +331,7 @@ export default function IndiaMapToggle() {
                 </div>
               ) : (
                 <div className="text-xs text-white/50">
-                  Hover over states to view names
+                  {mapLabels.hoverHelp}
                 </div>
               )}
             </div>
@@ -372,7 +394,7 @@ export default function IndiaMapToggle() {
               <div className="bg-[#FAFAF7] text-[#0F2A1E] rounded-2xl p-6 w-full max-w-sm border border-[#E5E5E0] shadow-2xl animate-scale-up">
                 <div className="flex items-center justify-between mb-4 pb-2 border-b border-[#E5E5E0]">
                   <h4 className="font-serif font-semibold text-base">
-                    Select Language for {activeState.name}
+                    {mapLabels.selectTitle} {activeState.name}
                   </h4>
                   <button
                     onClick={() => setActiveState(null)}

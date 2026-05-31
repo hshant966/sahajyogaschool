@@ -10,6 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const NeuralNetwork = lazy(() => import("./NeuralNetwork"));
 
+const LOCALIZED_BADGES: Record<string, string[]> = {
+  en: ["King's College London", "NIH Funded", "Govt. Authorized", "Schools & Colleges"],
+  mr: ["किंग्ज कॉलेज लंडन", "एनआयएच (NIH) अनुदानित", "शासन मान्यताप्राप्त", "शाळा आणि महाविद्यालये"],
+  hi: ["किंग्स कॉलेज लंदन", "एनआईएच (NIH) वित्तपोषित", "शासकीय स्वीकृत", "स्कूल और कॉलेज"],
+};
+
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -161,7 +167,7 @@ export default function Hero() {
 
           {/* Trust pills — premium styling */}
           <div className="flex flex-wrap gap-3">
-            {["King's College London", "NIH Funded", "Govt. Authorized", "Schools & Colleges"].map((badge) => (
+            {(LOCALIZED_BADGES[lang] || LOCALIZED_BADGES["en"]).map((badge) => (
               <span
                 key={badge}
                 className="px-4 py-1.5 rounded-full bg-white border-2 border-[#52B788] text-[#0F2A1E] text-xs font-medium shadow-sm hover:shadow-md transition-shadow"

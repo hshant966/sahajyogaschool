@@ -1,22 +1,55 @@
+"use client";
+
+import { useLang } from "@/lib/LanguageContext";
 import "./trustbar.css";
 
-const institutions = [
-  "King's College London",
-  "National Institutes of Health, USA",
-  "University of Exeter, UK",
-  "Delhi University",
-  "Philadelphia University",
-  "Washington University",
-  "Belapur Medical Research Center, India",
-];
+const LOCALIZED_LABELS: Record<string, string> = {
+  en: "Research Institutions",
+  mr: "संशोधन संस्था",
+  hi: "अनुसंधान संस्थान",
+};
+
+const LOCALIZED_INSTITUTIONS: Record<string, string[]> = {
+  en: [
+    "King's College London",
+    "National Institutes of Health, USA",
+    "University of Exeter, UK",
+    "Delhi University",
+    "Philadelphia University",
+    "Washington University",
+    "Belapur Medical Research Center, India",
+  ],
+  mr: [
+    "किंग्ज कॉलेज लंडन",
+    "नॅशनल इन्स्टिट्यूट्स ऑफ हेल्थ, अमेरिका",
+    "युनिव्हर्सिटी ऑफ एक्सेटर, युनायटेड किंगडम",
+    "दिल्ली विद्यापीठ",
+    "फिलाडेल्फिया युनिव्हर्सिटी",
+    "वाशिंग्टन युनिव्हर्सिटी",
+    "बेलापूर मेडिकल रिसर्च सेंटर, भारत",
+  ],
+  hi: [
+    "किंग्स कॉलेज लंदन",
+    "नेशनल इंस्टीट्यूट्स ऑफ हेल्थ, अमेरिका",
+    "यूनिवर्सिटी ऑफ एक्सेटर, यूके",
+    "दिल्ली विश्वविद्यालय",
+    "फिलाडेल्फिया विश्वविद्यालय",
+    "वाशिंगटन विश्वविद्यालय",
+    "बेलापुर मेडिकल रिसर्च सेंटर, भारत",
+  ]
+};
 
 export default function TrustBar() {
+  const { lang } = useLang();
+  const label = LOCALIZED_LABELS[lang] || LOCALIZED_LABELS["en"];
+  const institutions = LOCALIZED_INSTITUTIONS[lang] || LOCALIZED_INSTITUTIONS["en"];
+
   return (
     <section className="w-full bg-[#0F2A1E] py-8 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-16 flex flex-col gap-4">
         {/* Label */}
         <p className="text-xs font-semibold uppercase tracking-widest text-[#B7E4C7]">
-          Research Institutions
+          {label}
         </p>
 
         {/* Scrolling Container */}
