@@ -14,6 +14,8 @@ const LOCALIZED_BADGES: Record<string, string[]> = {
   en: ["King's College London", "NIH Funded", "Govt. Authorized", "Schools & Colleges"],
   mr: ["किंग्ज कॉलेज लंडन", "एनआयएच (NIH) अनुदानित", "शासन मान्यताप्राप्त", "शाळा आणि महाविद्यालये"],
   hi: ["किंग्स कॉलेज लंदन", "एनआईएच (NIH) वित्तपोषित", "शासकीय स्वीकृत", "स्कूल और कॉलेज"],
+  gu: ["કિંગ્સ કોલેજ લંડન", "NIH ભંડોળ", "સરકારી માન્ય", "શાળાઓ અને કોલેજો"],
+  ta: ["கிங்ஸ் கல்லூரி லண்டன்", "NIH நிதியுதவி", "அரசு அங்கீகாரம்", "பள்ளிகள் & கல்லூரிகள்"],
 };
 
 export default function Hero() {
@@ -78,7 +80,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="w-full h-screen relative overflow-hidden">
+    <section className="w-full min-h-screen relative overflow-hidden flex flex-col">
       {/* Scroll-tied video background */}
       <video
         ref={videoRef}
@@ -110,10 +112,10 @@ export default function Hero() {
       </div>
 
       {/* Hero content */}
-      <div className="relative z-30 w-full h-full flex items-center pt-20">
+      <div className="relative z-30 w-full flex-1 flex items-start pt-28 pb-16">
         <div
           ref={contentRef}
-          className="w-full max-w-7xl mx-auto px-6 lg:px-16 flex flex-col justify-center gap-7"
+          className="w-full max-w-7xl mx-auto px-6 lg:px-16 flex flex-col gap-7"
         >
           {/* Label */}
           <div className="flex items-center gap-3 flex-wrap">
@@ -180,7 +182,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 hidden md:flex flex-col items-center gap-2">
         <span className="text-xs uppercase tracking-widest text-[#9CA3AF]">Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-[#52B788] to-transparent animate-pulse" />
       </div>

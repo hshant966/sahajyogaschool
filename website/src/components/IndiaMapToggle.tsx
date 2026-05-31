@@ -6,24 +6,41 @@ import { translations } from "@/lib/translations";
 import type { Lang } from "@/lib/translations";
 import { Globe, X } from "lucide-react";
 
-const LOCALIZED_MAP: Record<string, { title: string; subtitle: string; hoverHelp: string; selectTitle: string }> = {
+const LOCALIZED_MAP: Record<string, { title: string; subtitle: string; hoverHelp: string; selectTitle: string; selectDirect: string }> = {
   en: {
     title: "Regional Language Map",
     subtitle: "Click a state to select its language",
     hoverHelp: "Hover over states to view names",
     selectTitle: "Select Language for",
+    selectDirect: "Or select language directly",
   },
   mr: {
     title: "प्रादेशिक भाषा नकाशा",
     subtitle: "भाषा निवडण्यासाठी राज्यावर क्लिक करा",
     hoverHelp: "नाव पाहण्यासाठी राज्यावर माउस न्या",
     selectTitle: "साठी भाषा निवडा -",
+    selectDirect: "किंवा थेट भाषा निवडा",
   },
   hi: {
     title: "क्षेत्रीय भाषा मानचित्र",
     subtitle: "भाषा चुनने के लिए राज्य पर क्लिक करें",
     hoverHelp: "नाम देखने के लिए राज्यों पर माउस घुमाएँ",
     selectTitle: "के लिए भाषा चुनें -",
+    selectDirect: "या सीधे भाषा चुनें",
+  },
+  gu: {
+    title: "પ્રાદેશિક ભાષા નકશો",
+    subtitle: "ભાષા પસંદ કરવા માટે રાજ્ય પર ક્લિક કરો",
+    hoverHelp: "નામ જોવા માટે રાજ્ય પર માઉસ લાવો",
+    selectTitle: "માટે ભાષા પસંદ કરો -",
+    selectDirect: "અથવા સીધી ભાષા પસંદ કરો",
+  },
+  ta: {
+    title: "வட்டார மொழி வரைபடம்",
+    subtitle: "மொழியைத் தேர்ந்தெடுக்க ஒரு மாநிலத்தைக் கிளிக் செய்க",
+    hoverHelp: "பெயர்களைக் காண மாநிலங்களின் மேல் நகர்த்தவும்",
+    selectTitle: "இதற்கான மொழியைத் தேர்ந்தெடுக்கவும் -",
+    selectDirect: "அல்லது மொழியை நேரடியாகத் தேர்ந்தெடுக்கவும்",
   },
 };
 
@@ -185,7 +202,7 @@ export default function IndiaMapToggle() {
         const svg = container.querySelector("svg");
         if (!svg) return;
 
-        svg.setAttribute("class", "w-full h-full max-h-[60vh] md:max-h-[70vh] select-none");
+        svg.setAttribute("class", "w-full h-auto max-h-[50vh] md:max-h-[60vh] select-none object-contain");
         
         const paths = svg.querySelectorAll("path");
         paths.forEach((path) => {
@@ -292,56 +309,80 @@ export default function IndiaMapToggle() {
 
       {/* Full screen Map Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-[#0F2A1E]/95 backdrop-blur-md">
-          {/* Top Info Bar */}
-          <div className="absolute top-4 left-6 right-6 flex items-center justify-between z-10">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#52B788] flex items-center justify-center">
-                <Globe className="w-4 h-4 text-[#0F2A1E]" />
-              </div>
-              <div>
-                <h3 className="font-serif text-lg font-semibold text-white">
-                  {mapLabels.title}
-                </h3>
-                <p className="text-xs text-[#B7E4C7]/80">
-                  {mapLabels.subtitle}
-                </p>
-              </div>
-            </div>
-            
-            <button
-              onClick={() => setIsOpen(false)}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-all flex items-center justify-center text-white cursor-pointer"
-              aria-label="Close language selector"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Modal Inner Window */}
-          <div
-            ref={modalRef}
-            className="w-full max-w-4xl flex flex-col items-center justify-center mt-12 mb-8 relative"
-          >
-            {/* Hovered State Tooltip indicator */}
-            <div className="h-8 mb-4 text-center">
-              {hoveredState ? (
-                <div className="px-4 py-1 rounded-full bg-[#164A2F] border border-[#2D6A4F] text-xs font-semibold text-[#B7E4C7] shadow-sm animate-fade-in">
-                  {hoveredState}
+        <div className="fixed inset-0 z-[100] bg-[#0F2A1E]/95 backdrop-blur-md overflow-y-auto">
+          <div className="w-full min-h-screen flex flex-col items-center p-6 relative max-w-5xl mx-auto">
+            {/* Top Info Bar */}
+            <div className="w-full flex items-center justify-between gap-4 mb-6 pb-4 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#52B788] flex items-center justify-center">
+                  <Globe className="w-4 h-4 text-[#0F2A1E]" />
                 </div>
-              ) : (
-                <div className="text-xs text-white/50">
-                  {mapLabels.hoverHelp}
+                <div>
+                  <h3 className="font-serif text-base md:text-lg font-semibold text-white leading-tight">
+                    {mapLabels.title}
+                  </h3>
+                  <p className="text-xs text-[#B7E4C7]/80">
+                    {mapLabels.subtitle}
+                  </p>
                 </div>
-              )}
+              </div>
+              
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-all flex items-center justify-center text-white cursor-pointer flex-shrink-0"
+                aria-label="Close language selector"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            {/* SVG Interactive Map Container */}
+            {/* Modal Inner Window */}
             <div
-              ref={mapContainerRef}
-              className="w-full flex items-center justify-center relative select-none"
-              style={{ minHeight: "45vh" }}
-            />
+              ref={modalRef}
+              className="w-full flex-1 flex flex-col items-center justify-center relative"
+            >
+              {/* Quick State/Language Selector Dropdown (Optimized for mobile tap targets) */}
+              <div className="w-full max-w-xs mb-6 px-4 z-20">
+                <label htmlFor="mobile-lang-select" className="block text-xs font-semibold text-[#B7E4C7]/80 mb-2 text-center">
+                  {mapLabels.selectDirect}
+                </label>
+                <div className="relative">
+                  <select
+                    id="mobile-lang-select"
+                    value={lang}
+                    onChange={(e) => {
+                      setLang(e.target.value as Lang);
+                      setIsOpen(false);
+                    }}
+                    className="w-full px-4 py-3 rounded-xl bg-[#164A2F]/80 border border-[#2D6A4F] text-white text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-[#52B788] focus:border-transparent transition-all cursor-pointer text-center"
+                  >
+                    {liveLangs.map((l) => (
+                      <option key={l.code} value={l.code} className="text-[#0F2A1E] bg-[#FAFAF7]">
+                        {l.label} ({l.native})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              {/* Hovered State Tooltip indicator */}
+              <div className="h-8 mb-4 text-center">
+                {hoveredState ? (
+                  <div className="px-4 py-1 rounded-full bg-[#164A2F] border border-[#2D6A4F] text-xs font-semibold text-[#B7E4C7] shadow-sm animate-fade-in">
+                    {hoveredState}
+                  </div>
+                ) : (
+                  <div className="text-xs text-white/50">
+                    {mapLabels.hoverHelp}
+                  </div>
+                )}
+              </div>
+
+              {/* SVG Interactive Map Container */}
+              <div
+                ref={mapContainerRef}
+                className="w-full max-w-[480px] md:max-w-2xl flex items-center justify-center relative select-none px-2 mx-auto"
+                style={{ minHeight: "35vh" }}
+              />
 
             {/* Bottom floating pills for non-geographic / global languages */}
             <div className="mt-8 flex flex-wrap justify-center gap-3 max-w-lg">
@@ -428,7 +469,8 @@ export default function IndiaMapToggle() {
             </div>
           )}
         </div>
-      )}
-    </>
-  );
+      </div>
+    )}
+  </>
+);
 }

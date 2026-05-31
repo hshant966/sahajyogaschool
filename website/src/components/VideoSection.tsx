@@ -52,6 +52,30 @@ const LOCALIZED_VIDEO_DATA: Record<string, {
       { part: 5, title: "बीमारी", videoId: "yumnEGS-1oc" },
       { part: 6, title: "निष्कर्ष", videoId: "VDgTAVUOc6A" },
     ]
+  },
+  gu: {
+    part1Title: "ભાગ ૧: પરિચય",
+    continueText: "શ્રેણી ચાલુ રાખો",
+    channelNote: "બધા વિડીયો સત્તાવાર શ્રી માતાજી નિર્મલા દેવી યુટ્યુબ ચેનલ પરથી લેવામાં આવ્યા છે",
+    playlist: [
+      { part: 2, title: "શરીર", videoId: "M1_RrUGmNlk" },
+      { part: 3, title: "મગજ", videoId: "3loz19_PUeU" },
+      { part: 4, title: "આરોગ્ય", videoId: "xscl5M8xuUg" },
+      { part: 5, title: "બીમારી", videoId: "yumnEGS-1oc" },
+      { part: 6, title: "નિષ્કર્ષ", videoId: "VDgTAVUOc6A" },
+    ]
+  },
+  ta: {
+    part1Title: "பாகம் 1: அறிமுகம்",
+    continueText: "தொடரைத் தொடரவும்",
+    channelNote: "அனைத்து வீடியோக்களும் ஸ்ரீ மாதாஜி நிர்மலா தேவி அதிகாரப்பூர்வ யூடியூப் சேனலில் இருந்து எடுக்கப்பட்டவை",
+    playlist: [
+      { part: 2, title: "உடல்", videoId: "M1_RrUGmNlk" },
+      { part: 3, title: "மூளை", videoId: "3loz19_PUeU" },
+      { part: 4, title: "ஆரோக்கியம்", videoId: "xscl5M8xuUg" },
+      { part: 5, title: "நோய்", videoId: "yumnEGS-1oc" },
+      { part: 6, title: "முடிவுகள்", videoId: "VDgTAVUOc6A" },
+    ]
   }
 };
 

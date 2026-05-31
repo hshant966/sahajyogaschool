@@ -57,7 +57,16 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:18002700800"
+              className="text-xs lg:text-sm font-semibold text-[#0F2A1E] hover:text-[#52B788] transition-colors flex items-center gap-1.5"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse flex-shrink-0" />
+              <span className="opacity-75">Toll-Free:</span>
+              <span className="font-mono">1800-2700-800</span>
+            </a>
+
             {/* Interactive SVG India Map selector */}
             <IndiaMapToggle />
 
@@ -97,6 +106,14 @@ export default function Navigation() {
                 {t.nav[link.labelKey]}
               </a>
             ))}
+            <a
+              href="tel:18002700800"
+              className="px-5 py-3 rounded-full text-sm font-semibold text-[#0F2A1E] border-2 border-[#0f2a1e] text-center flex items-center justify-center gap-2"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse flex-shrink-0" />
+              <span>Helpline: 1800-2700-800</span>
+            </a>
             <a
               href="#contact"
               className="px-5 py-3 rounded-full text-sm font-semibold text-white bg-[#0F2A1E] text-center"

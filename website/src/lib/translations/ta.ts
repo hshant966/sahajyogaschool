@@ -29,164 +29,164 @@ export const ta: TranslationShape = {
     subtitle: "3 கண்டங்களில் மதிப்பாய்வு செய்யப்பட்ட ஆராய்ச்சிகள்",
   },
   brainScience: {
-    label: "Neuroscience",
-    title: "Your brain on meditation",
-    description: "MRI and EEG studies confirm meditation creates a measurably different state of consciousness.",
-    prefrontalCortex: "Prefrontal Cortex",
-    prefrontalCortexDesc: "↑ Deep Focus & Decision Making",
-    amygdala: "Amygdala",
-    amygdalaDesc: "↓ Stress & Fear Response",
-    frontalLobe: "Frontal Lobe",
-    frontalLobeDesc: "Deep Attention",
-    limbicSystem: "Limbic System",
-    limbicSystemDesc: "Joy & Emotions",
-    mentalClutter: "Reduced Mental Clutter",
-    mentalClutterDesc: "Theta waves increase deep focus",
+    label: "நரம்பியல்",
+    title: "தியானத்தில் உங்கள் மூளை",
+    description: "MRI மற்றும் EEG ஆய்வுகள், தியானம் மூளையின் செயல்பாட்டில் அளவிடக்கூடிய மாற்றத்தை உருவாக்குகிறது என்பதை உறுதிப்படுத்துகின்றன.",
+    prefrontalCortex: "ப்ரீஃப்ரண்டல் கார்டெக்ஸ்",
+    prefrontalCortexDesc: "↑ ஆழமான கவனம் & முடிவெடுத்தல்",
+    amygdala: "அமிக்டாலா",
+    amygdalaDesc: "↓ மன அழுத்தம் & பய உணர்வு",
+    frontalLobe: "ஃப்ரண்டல் லோப்",
+    frontalLobeDesc: "ஆழ்ந்த கவனம்",
+    limbicSystem: "லிம்பிக் சிஸ்டம்",
+    limbicSystemDesc: "மகிழ்ச்சி & உணர்ச்சிகள்",
+    mentalClutter: "மனக் குழப்பத்தைக் குறைத்தல்",
+    mentalClutterDesc: "தீட்டா அலைகள் ஆழமான கவனத்தை அதிகரிக்கின்றன",
     chemicals: {
-      endorphinsTitle: "Beta Endorphins",
-      endorphinsDesc: "Natural happiness + immune boost",
-      dopamineTitle: "Dopamine",
-      dopamineDesc: "Sustained pleasure without side effects",
-      serotoninTitle: "Serotonin",
-      serotoninDesc: "Protection against depression",
-      melatoninTitle: "Melatonin",
-      melatoninDesc: "Better sleep + stronger immunity"
+      endorphinsTitle: "பீட்டா எண்டோர்பின்கள்",
+      endorphinsDesc: "இயற்கையான மகிழ்ச்சி + நோய் எதிர்ப்புச் சக்தி",
+      dopamineTitle: "டோபமைன்",
+      dopamineDesc: "பக்கவிளைவுகள் இல்லாத நீடித்த மகிழ்ச்சி",
+      serotoninTitle: "செரோடோனின்",
+      serotoninDesc: "மனச்சோர்விலிருந்து பாதுகாப்பு",
+      melatoninTitle: "மெலடோனின்",
+      melatoninDesc: "சிறந்த தூக்கம் + வலுவான நோய் எதிர்ப்புச் சக்தி"
     },
-    quote: "Mental silence is a state of super mental balance — more than normal people have.",
-    quoteAuthor: "Prof. Katya Rubia, King's College London",
-    supportingText: "MRI and EEG studies confirm meditation creates a measurably different state of consciousness."
+    quote: "மன அமைதி என்பது ஒரு சிறந்த மன சமநிலை நிலை — இது சாதாரண மனிதர்களை விட மிகவும் அதிகமாகும்.",
+    quoteAuthor: "பேராசிரியர் காத்யா ரூபியா, கிங்ஸ் கல்லூரி லண்டன்",
+    supportingText: "MRI மற்றும் EEG ஆய்வுகள், தியானம் மூளையின் செயல்பாட்டில் அளவிடக்கூடிய மாற்றத்தை உருவாக்குகிறது என்பதை உறுதிப்படுத்துகின்றன."
   },
   studentBenefits: {
-    title: "Why schools adopt this program",
-    subtitle: "Direct impact on student wellbeing and academic success",
+    title: "பள்ளிகள் ஏன் இந்தத் திட்டத்தை ஏற்றுக்கொள்கின்றன",
+    subtitle: "மாணவர்களின் நல்வாழ்வு மற்றும் கல்வி வெற்றியில் நேரடி தாக்கம்",
     cards: [
       {
         number: "01",
-        label: "Attention",
-        title: "Improved Academic Performance",
-        desc: "Significant reduction in ADHD symptoms. Students show higher class concentration and better information retention."
+        label: "கவனம்",
+        title: "மேம்படுத்தப்பட்ட கல்வித் திறன்",
+        desc: "ADHD அறிகுறிகளில் குறிப்பிடத்தக்க குறைவு. மாணவர்கள் வகுப்பில் அதிக கவனத்தையும் சிறந்த நினைவாற்றலையும் காட்டுகிறார்கள்."
       },
       {
         number: "02",
-        label: "Wellbeing",
-        title: "Reduced Stress & Anxiety",
-        desc: "Clinically proven to lower cortisol levels. Helps students handle exam pressure and emotional challenges."
+        label: "நல்வாழ்வு",
+        title: "மன அழுத்தம் & பதற்றம் குறைதல்",
+        desc: "கார்டிசோல் அளவைக் குறைப்பதாக மருத்துவ ரீதியாக நிரூபிக்கப்பட்டுள்ளது. தேர்வு பயம் மற்றும் உணர்ச்சி ரீதியான சவால்களை எதிர்கொள்ள உதவுகிறது."
       },
       {
         number: "03",
-        label: "Behavior",
-        title: "Better Classroom Behavior",
-        desc: "Promotes emotional regulation and empathy, leading to lower conflict rates and a more supportive learning environment."
+        label: "நடத்தை",
+        title: "சிறந்த வகுப்பறை நடத்தை",
+        desc: "உணர்ச்சி கட்டுப்பாடு மற்றும் பச்சாதாபத்தை ஊக்குவிக்கிறது, இது மோதல்களைக் குறைத்து ஒரு ஆதரவான கற்றல் சூழலை உருவாக்குகிறது."
       }
     ]
   },
   govApprovals: {
-    label: "Government Recognition",
-    title: "Approved by Government of India",
-    description: "State and central government bodies have independently reviewed and approved this program. This is not a pilot — it is in active deployment.",
+    label: "அரசு அங்கீகாரம்",
+    title: "இந்திய அரசால் அங்கீகரிக்கப்பட்டது",
+    description: "மாநில மற்றும் மத்திய அரசு அமைப்புகள் இந்தத் திட்டத்தை மதிப்பாய்வு செய்து அங்கீகரித்துள்ளன. இது ஒரு சோதனை முயற்சி அல்ல — செயலில் உள்ள ஒரு திட்டம்.",
     states: [
       {
-        state: "Telangana",
-        badge: "State Government",
+        state: "தெலங்கானா",
+        badge: "மாநில அரசு",
         schools: "39,603",
-        schoolLabel: "Schools",
-        students: "61 Lakh",
-        studentLabel: "Students",
-        detail: "Including 12,722 private schools. Official order by Education Department.",
+        schoolLabel: "பள்ளிகள்",
+        students: "61 லட்சம்",
+        studentLabel: "மாணவர்கள்",
+        detail: "12,722 தனியார் பள்ளிகள் உட்பட. கல்வித் துறை வழங்கிய அதிகாரப்பூர்வ உத்தரவு.",
         year: "2023"
       },
       {
-        state: "Haryana",
-        badge: "State Government",
+        state: "ஹரியானா",
+        badge: "மாநில அரசு",
         schools: "500+",
-        schoolLabel: "Schools",
+        schoolLabel: "பள்ளிகள்",
         students: "50,000",
-        studentLabel: "Students",
-        detail: "Ambala District implementation. Education Department order.",
+        studentLabel: "மாணவர்கள்",
+        detail: "அம்பாலா மாவட்டத்தில் அமலாக்கம். கல்வித் துறையின் உத்தரவு.",
         year: "2015"
       },
       {
-        state: "Kendriya Vidyalaya",
-        badge: "Central Government",
-        schools: "All India",
-        schoolLabel: "Approval",
-        students: "Central",
-        studentLabel: "Schools",
-        detail: "All states and union territories. Central Government school network.",
+        state: "கேந்திரிய வித்யாலயா",
+        badge: "மத்திய அரசு",
+        schools: "அகில இந்தியா",
+        schoolLabel: "அங்கீகாரம்",
+        students: "மத்திய",
+        studentLabel: "பள்ளிகள்",
+        detail: "அனைத்து மாநிலங்கள் மற்றும் யூனியன் பிரதேசங்கள். மத்திய அரசின் பள்ளி நெட்வொர்க்.",
         year: "2022"
       }
     ],
-    disclaimer: "Additionally recognized by school boards in Maharashtra, Gujarat, and Karnataka.",
-    downloadLabel: "Download Official Permission Letters",
-    puneZPName: "Pune Zilla Parishad",
-    puneZPDesc: "Official authorization letter · 2024",
-    schoolLetterName: "School Permission Letter",
-    schoolLetterDesc: "Official authorization letter"
+    disclaimer: "கூடுதலாக மகாராஷ்டிரா, குஜராத் மற்றும் கர்நாடக பள்ளி வாரியங்களால் அங்கீகரிக்கப்பட்டுள்ளது.",
+    downloadLabel: "அதிகாரப்பூர்வ அனுமதி கடிதங்களை பதிவிறக்குக",
+    puneZPName: "புனே ஜில்லா பரிஷத்",
+    puneZPDesc: "அதிகாரப்பூர்வ அங்கீகாரக் கடிதம் · 2024",
+    schoolLetterName: "பள்ளி அனுமதி கடிதம்",
+    schoolLetterDesc: "அதிகாரப்பூர்வ அனுமதி கடிதம்"
   },
   medicalConferences: {
-    title: "Presented at Global Medical Conferences",
-    subtitle: "Peer-reviewed scientific validation from international medical events",
+    title: "உலகளாவிய மருத்துவ மாநாடுகளில் சமர்ப்பிக்கப்பட்டது",
+    subtitle: "சர்வதேச மருத்துவ நிகழ்வுகளில் இருந்து பெறப்பட்ட அறிவியல் பூர்வமான சான்றுகள்",
     conferences: [
       {
-        title: "International Symposium on Mind-Body Medicine",
-        host: "National Institutes of Health (NIH), Washington D.C.",
+        title: "மனம்-உடல் மருத்துவம் பற்றிய சர்வதேச கருத்தரங்கு",
+        host: "தேசிய சுகாதார நிறுவனம் (NIH), வாஷிங்டன் டி.சி.",
         year: "2014",
-        detail: "Research on how mental silence reduces systemic inflammation and autonomic stress response."
+        detail: "மன அமைதி எவ்வாறு உடல் வீக்கம் மற்றும் தன்னாட்சி மன அழுத்தத்தைக் குறைக்கிறது என்பது பற்றிய ஆராய்ச்சி."
       },
       {
-        title: "Annual Conference of the Royal College of Psychiatrists",
-        host: "London, UK",
+        title: "மனநல மருத்துவர்களின் ராயல் கல்லூரி ஆண்டு மாநாடு",
+        host: "லண்டன், யுகே",
         year: "2019",
-        detail: "Clinical trials demonstrating significant improvement in anxiety and depressive disorders through Sahaja Yoga."
+        detail: "சகஜ யோகம் மூலம் மனப்பதற்றம் மற்றும் மனச்சோர்வில் குறிப்பிடத்தக்க முன்னேற்றத்தைக் காட்டும் மருத்துவ ஆய்வுகள்."
       },
       {
-        title: "World Congress on Psychophysiology",
-        host: "Florence, Italy",
+        title: "உலகளாவிய உளவியல் உடலியல் காங்கிரஸ்",
+        host: "புளோரன்ஸ், இத்தாலி",
         year: "2016",
-        detail: "EEG data mapping showing shift to high-amplitude alpha/theta coherence during thoughtless awareness."
+        detail: "மன அமைதியின் போது ஆல்ஃபா/தீட்டா அலைகளின் ஒருங்கிசைவை காட்டும் EEG தரவு."
       }
     ]
   },
   videoSection: {
-    title: "Scientific Explanation of Sahaja Yoga",
-    subtitle: "Watch this video to understand the physiological and neurological mechanisms behind thoughtless awareness."
+    title: "சகஜ யோகத்தின் அறிவியல் விளக்கம்",
+    subtitle: "மன அமைதிக்கு பின்னால் உள்ள உடலியல் மற்றும் நரம்பியல் வழிமுறைகளைப் புரிந்து கொள்ள இந்த வீடியோவைப் பாருங்கள்."
   },
   talksResources: {
-    title: "Lectures & Scientific Discourses",
-    subtitle: "Discourses by Dr. Nirmala Devi on the biological basis of meditation",
+    title: "சொற்பொழிவுகள் & அறிவியல் உரையாடல்கள்",
+    subtitle: "தியானத்தின் உயிரியல் அடிப்படை குறித்து டாக்டர் நிர்மலா தேவி ஆற்றிய உரைகள்",
     categories: [
       {
-        title: "Medical Science and Meditation",
-        desc: "Sardar Patel Medical College, 1993. A detailed analysis of how the autonomic nervous system is regulated during deep meditation."
+        title: "மருத்துவ அறிவியல் மற்றும் தியானம்",
+        desc: "சர்தார் படேல் மருத்துவக் கல்லூரி, 1993. தியானத்தின் போது தன்னாட்சி நரம்பு மண்டலம் எவ்வாறு சீராகிறது என்பது பற்றிய விரிவான பகுப்பாய்வு."
       },
       {
-        title: "The Subtle System & Human Health",
-        desc: "Leipzig, Germany, 1990. Explanation of the correlation between ancient physiological energy centers and the physical plexuses."
+        title: "சூட்சும அமைப்பு மற்றும் மனித ஆரோக்கியம்",
+        desc: "லீப்ஜிக், ஜெர்மனி, 1990. ஆற்றல் மையங்களுக்கும் உடலின் நரம்பு பின்னல்களுக்கும் இடையே உள்ள தொடர்பு பற்றிய விளக்கம்."
       },
       {
-        title: "Role of Meditation in Education",
-        desc: "Delhi University, 1997. Guidelines for teachers and principals on implementing meditation to enhance student focus and memory."
+        title: "கல்வியில் தியானத்தின் பங்கு",
+        desc: "டெல்லி பல்கலைக்கழகம், 1997. மாணவர்களின் கவனம் மற்றும் நினைவாற்றலை மேம்படுத்த தியானத்தை செயல்படுத்துவது குறித்த ஆசிரியர்களுக்கான வழிகாட்டி."
       }
     ]
   },
   forSchools: {
-    title: "How to bring this to your school",
-    subtitle: "Simple, zero-cost, and structured implementation process",
+    title: "இதை உங்கள் பள்ளிக்கு எவ்வாறு கொண்டு வருவது",
+    subtitle: "எளிமையான, பூஜ்ஜிய கட்டண, ஒழுங்கமைக்கப்பட்ட செயல்முறை",
     steps: [
       {
         number: "01",
-        title: "Request Workshop",
-        desc: "Fill the contact form below. Our local volunteer coordinator will contact you to align on dates and format."
+        title: "பயிற்சிக்கு விண்ணப்பிக்கவும்",
+        desc: "கீழே உள்ள படிவத்தை நிரப்பவும். எங்கள் உள்ளூர் ஒருங்கிணைப்பாளர் தேதிகளை முடிவு செய்ய உங்களைத் தொடர்புகொள்வார்."
       },
       {
         number: "02",
-        title: "Introductory Session",
-        desc: "A 30-minute introductory presentation explaining the science, followed by a 10-minute practical trial."
+        title: "அறிமுக அமர்வு",
+        desc: "அறிவியலை விளக்கும் 30 நிமிட அறிமுக உரை, அதைத் தொடர்ந்து 10 நிமிட நேரடி தியான பயிற்சி."
       },
       {
         number: "03",
-        title: "Weekly Practice",
-        desc: "We provide training materials and visual guides for a 10-minute daily or weekly classroom session."
+        title: "வாராந்திர பயிற்சி",
+        desc: "வகுப்பறையில் தினமும் அல்லது வாரந்தோறும் 10 நிமிட பயிற்சிக்கு தேவையான பயிற்சி பொருட்கள் மற்றும் வழிகாட்டிகளை நாங்கள் வழங்குகிறோம்."
       }
     ]
   },

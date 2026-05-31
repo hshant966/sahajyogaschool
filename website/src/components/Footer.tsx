@@ -37,13 +37,33 @@ const LOCALIZED_INSTITUTIONS: Record<string, string[]> = {
     "फिलाडेल्फिया विश्वविद्यालय",
     "वाशिंगटन विश्वविद्यालय",
     "बेलापुर मेडिकल रिसर्च सेंटर, भारत",
+  ],
+  gu: [
+    "કિંગ્સ કોલેજ લંડન",
+    "નેશનલ ઇન્સ્ટિટ્યુટ્સ ઓફ હેલ્થ, અમેરિકા",
+    "યુનિવર્સિટી ઓફ એક્સેટર, યુકે",
+    "દિલ્હી યુનિવર્સિટી",
+    "ફિલાડેલ્ફિયા યુનિવર્સિટી",
+    "વોશિંગ્ટન યુનિવર્સિટી",
+    "બેलापूर મેડિકલ રિસર્ચ સેન્ટર, ભારત",
+  ],
+  ta: [
+    "கிங்ஸ் கல்லூரி லண்டன்",
+    "தேசிய சுகாதார நிறுவனம், அமெரிக்கா",
+    "எக்ஸிடெர் பல்கலைக்கழகம், யுகே",
+    "டெல்லி பல்கலைக்கழகம்",
+    "பிலடெல்பியா பல்கலைக்கழகம்",
+    "வாஷிங்டன் பல்கலைக்கழகம்",
+    "பெலாப்பூர் மருத்துவ ஆராய்ச்சி மையம், இந்தியா",
   ]
 };
 
 const LOCALIZED_LABELS: Record<string, { nav: string; inst: string; free: string; noRel: string; govt: string }> = {
   en: { nav: "Navigation", inst: "Research Institutions", free: "100% Free", noRel: "Non-Religious", govt: "Govt. Approved" },
   mr: { nav: "नेव्हिगेशन", inst: "संशोधन संस्था", free: "१००% मोफत", noRel: "धर्मनिरपेक्ष", govt: "शासन मान्यताप्राप्त" },
-  hi: { nav: "नेविगेशन", inst: "अनुसंधान संस्थान", free: "१००% निःशुल्क", noRel: "धर्मनिरपेक्ष", govt: "शासकीय स्वीकृत" }
+  hi: { nav: "नेविगेशन", inst: "अनुसंधान संस्थान", free: "१००% निःशुल्क", noRel: "धर्मनिरपेक्ष", govt: "शासकीय स्वीकृत" },
+  gu: { nav: "નેવિગેશન", inst: "સંશોધન સંસ્થાઓ", free: "૧૦૦% મફત", noRel: "બિન-ધાર્મિક", govt: "સરકારી મંજૂર" },
+  ta: { nav: "வழிசெலுத்தல்", inst: "ஆராய்ச்சி நிறுவனங்கள்", free: "100% இலவசம்", noRel: "மதசார்பற்றது", govt: "அரசு அங்கீகாரம் பெற்றது" }
 };
 
 export default function Footer() {
@@ -75,6 +95,15 @@ export default function Footer() {
                   {b}
                 </span>
               ))}
+            </div>
+            <div className="mt-6">
+              <a
+                href="tel:18002700800"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#52B788] transition-colors"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse flex-shrink-0" />
+                <span>Helpline: 1800-2700-800</span>
+              </a>
             </div>
           </div>
 
@@ -108,7 +137,7 @@ export default function Footer() {
 
         <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[#6B7280] text-sm">
-            © 2024 Sahaja Yoga Science. Research compiled for educational purposes.
+            © {new Date().getFullYear()} Sahaja Yoga Science. Research compiled for educational purposes.
           </p>
           <p className="text-[#6B7280] text-xs">
             All research citations available upon request.

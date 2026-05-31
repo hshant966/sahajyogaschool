@@ -29,164 +29,164 @@ export const gu: TranslationShape = {
     subtitle: "૩ ખંડોમાં સમીક્ષિત સંશોધન",
   },
   brainScience: {
-    label: "Neuroscience",
-    title: "Your brain on meditation",
-    description: "MRI and EEG studies confirm meditation creates a measurably different state of consciousness.",
-    prefrontalCortex: "Prefrontal Cortex",
-    prefrontalCortexDesc: "↑ Deep Focus & Decision Making",
-    amygdala: "Amygdala",
-    amygdalaDesc: "↓ Stress & Fear Response",
-    frontalLobe: "Frontal Lobe",
-    frontalLobeDesc: "Deep Attention",
-    limbicSystem: "Limbic System",
-    limbicSystemDesc: "Joy & Emotions",
-    mentalClutter: "Reduced Mental Clutter",
-    mentalClutterDesc: "Theta waves increase deep focus",
+    label: "ન્યુરોસાયન્સ",
+    title: "ધ્યાન દરમિયાન તમારું મગજ",
+    description: "MRI અને EEG અભ્યાસો પુષ્ટિ કરે છે કે ધ્યાન મગજની સક્રિયતામાં માપી શકાય તેવો ફેરફાર લાવે છે.",
+    prefrontalCortex: "પ્રીફ્રન્ટલ કોર્ટેક્સ",
+    prefrontalCortexDesc: "↑ ઊંડી એકાગ્રતા અને નિર્ણય શક્તિ",
+    amygdala: "એમીગ્ડાલા",
+    amygdalaDesc: "↓ તણાવ અને ડરની પ્રતિક્રિયા",
+    frontalLobe: "ફ્રન્ટલ લોબ",
+    frontalLobeDesc: "ઊંડું ધ્યાન",
+    limbicSystem: "લિમ્બિક સિસ્ટમ",
+    limbicSystemDesc: "આનંદ અને લાગણીઓ",
+    mentalClutter: "માનસિક ગૂંચવણમાં ઘટાડો",
+    mentalClutterDesc: "થીટા તરંગો ઊંડી એકાગ્રતા વધારે છે",
     chemicals: {
-      endorphinsTitle: "Beta Endorphins",
-      endorphinsDesc: "Natural happiness + immune boost",
-      dopamineTitle: "Dopamine",
-      dopamineDesc: "Sustained pleasure without side effects",
-      serotoninTitle: "Serotonin",
-      serotoninDesc: "Protection against depression",
-      melatoninTitle: "Melatonin",
-      melatoninDesc: "Better sleep + stronger immunity"
+      endorphinsTitle: "બીટા એન્ડોર્ફિન્સ",
+      endorphinsDesc: "કુદરતી આનંદ + રોગપ્રતિકારક શક્તિમાં વધારો",
+      dopamineTitle: "ડોપામાઇન",
+      dopamineDesc: "આડઅસર વિના સતત ઉત્સાહ",
+      serotoninTitle: "સેરોટોનિન",
+      serotoninDesc: "માનસિક હતાશા સામે રક્ષણ",
+      melatoninTitle: "મેલાટોનિન",
+      melatoninDesc: "વધુ સારી ઊંઘ + મજબૂત રોગપ્રતિકારક શક્તિ"
     },
-    quote: "Mental silence is a state of super mental balance — more than normal people have.",
-    quoteAuthor: "Prof. Katya Rubia, King's College London",
-    supportingText: "MRI and EEG studies confirm meditation creates a measurably different state of consciousness."
+    quote: "માનસિક મૌન એ અસાધારણ માનસિક સંતુલનની સ્થિતિ છે — જે સામાન્ય લોકો કરતાં ઘણી વધારે છે.",
+    quoteAuthor: "પ્રો. કાત્યા રુબિયા, કિંગ્સ કોલેજ લંડન",
+    supportingText: "MRI અને EEG અભ્યાસો પુષ્ટિ કરે છે કે ધ્યાન મગજની સક્રિયતામાં માપી શકાય તેવો ફેરફાર લાવે છે."
   },
   studentBenefits: {
-    title: "Why schools adopt this program",
-    subtitle: "Direct impact on student wellbeing and academic success",
+    title: "શાળાઓ આ કાર્યક્રમ શા માટે અપનાવે છે",
+    subtitle: "વિદ્યાર્થીઓની સુખાકારી અને શૈક્ષણિક સફળતા પર સીધો પ્રભાવ",
     cards: [
       {
         number: "01",
-        label: "Attention",
-        title: "Improved Academic Performance",
-        desc: "Significant reduction in ADHD symptoms. Students show higher class concentration and better information retention."
+        label: "એકાગ્રતા",
+        title: "સુધારેલ શૈક્ષણિક પ્રદર્શન",
+        desc: "ADHD ના લક્ષણોમાં નોંધપાત્ર ઘટાડો. વિદ્યાર્થીઓ વર્ગખંડમાં વધુ એકાગ્રતા અને માહિતી યાદ રાખવાની ક્ષમતા દર્શાવે છે."
       },
       {
         number: "02",
-        label: "Wellbeing",
-        title: "Reduced Stress & Anxiety",
-        desc: "Clinically proven to lower cortisol levels. Helps students handle exam pressure and emotional challenges."
+        label: "સુખાકારી",
+        title: "તણાવ અને ચિંતામાં ઘટાડો",
+        desc: "કોર્ટિસોલનું સ્તર ઘટાડવા માટે તબીબી રીતે સાબિત. વિદ્યાર્થીઓને પરીક્ષાના દબાણ અને ભાવનાત્મક પડકારોનો સામનો કરવામાં મદદ કરે છે."
       },
       {
         number: "03",
-        label: "Behavior",
-        title: "Better Classroom Behavior",
-        desc: "Promotes emotional regulation and empathy, leading to lower conflict rates and a more supportive learning environment."
+        label: "વર્તણૂક",
+        title: "વર્ગખંડમાં વધુ સારું વર્તન",
+        desc: "ભાવનાત્મક નિયંત્રણ અને સહાનુભૂતિને પ્રોત્સાહન આપે છે, જેનાથી વિખવાદો ઘટે છે અને સહાયક શિક્ષણ વાતાવરણ ઊભું થાય છે."
       }
     ]
   },
   govApprovals: {
-    label: "Government Recognition",
-    title: "Approved by Government of India",
-    description: "State and central government bodies have independently reviewed and approved this program. This is not a pilot — it is in active deployment.",
+    label: "સરકારી માન્યતા",
+    title: "ભારત સરકાર દ્વારા મંજૂર",
+    description: "રાજ્ય અને કેન્દ્ર સરકારની સંસ્થાઓએ આ કાર્યક્રમની સમીક્ષા કરી મંજૂરી આપી છે. આ કોઈ પ્રાયોગિક ધોરણે નથી — સક્રિય અમલીકરણ છે.",
     states: [
       {
-        state: "Telangana",
-        badge: "State Government",
-        schools: "39,603",
-        schoolLabel: "Schools",
-        students: "61 Lakh",
-        studentLabel: "Students",
-        detail: "Including 12,722 private schools. Official order by Education Department.",
-        year: "2023"
+        state: "તેલંગાણા",
+        badge: "રાજ્ય સરકાર",
+        schools: "૩૯,६૦૩",
+        schoolLabel: "શાળાઓ",
+        students: "૬૧ લાખ",
+        studentLabel: "વિદ્યાર્થીઓ",
+        detail: "૧૨,૭૨૨ ખાનગી શાળાઓ સહિત. શિક્ષણ વિભાગ દ્વારા સત્તાવાર આદેશ.",
+        year: "૨૦૨३"
       },
       {
-        state: "Haryana",
-        badge: "State Government",
-        schools: "500+",
-        schoolLabel: "Schools",
-        students: "50,000",
-        studentLabel: "Students",
-        detail: "Ambala District implementation. Education Department order.",
-        year: "2015"
+        state: "હરિયાણા",
+        badge: "રાજ્ય સરકાર",
+        schools: "૫૦૦+",
+        schoolLabel: "શાળાઓ",
+        students: "૫૦,૦૦૦",
+        studentLabel: "વિદ્યાર્થીઓ",
+        detail: "અંબાલા જિલ્લામાં અમલીકરણ. શિક્ષણ વિભાગનો આદેશ.",
+        year: "૨૦૧૫"
       },
       {
-        state: "Kendriya Vidyalaya",
-        badge: "Central Government",
-        schools: "All India",
-        schoolLabel: "Approval",
-        students: "Central",
-        studentLabel: "Schools",
-        detail: "All states and union territories. Central Government school network.",
-        year: "2022"
+        state: "કેન્દ્રીય વિદ્યાલય",
+        badge: "કેન્દ્ર સરકાર",
+        schools: "સમગ્ર ભારત",
+        schoolLabel: "મંજૂરી",
+        students: "કેન્દ્રીય",
+        studentLabel: "શાળાઓ",
+        detail: "તમામ રાજ્યો અને કેન્દ્રશાસيت પ્રદેશો. કેન્દ્ર સરકારનું શાળા નેટવર્ક.",
+        year: "૨૦૨૨"
       }
     ],
-    disclaimer: "Additionally recognized by school boards in Maharashtra, Gujarat, and Karnataka.",
-    downloadLabel: "Download Official Permission Letters",
-    puneZPName: "Pune Zilla Parishad",
-    puneZPDesc: "Official authorization letter · 2024",
-    schoolLetterName: "School Permission Letter",
-    schoolLetterDesc: "Official authorization letter"
+    disclaimer: "આ ઉપરાંત મહારાષ્ટ્ર, ગુજરાત અને કર્ણાટકના શાળા બોર્ડ દ્વારા પણ માન્યતા પ્રાપ્ત.",
+    downloadLabel: "સત્તાવાર પરવાનગી પત્રો ડાઉનલોડ કરો",
+    puneZPName: "પુણે જિલ્લા પરિષદ",
+    puneZPDesc: "સત્તાવાર અધિકૃતતા પત્ર · ૨૦૨૪",
+    schoolLetterName: "શાળા પરવાનગી પત્ર",
+    schoolLetterDesc: "સત્તાવાર મંજૂરી પત્ર"
   },
   medicalConferences: {
-    title: "Presented at Global Medical Conferences",
-    subtitle: "Peer-reviewed scientific validation from international medical events",
+    title: "વૈશ્વિક તબીબી પરિષદોમાં પ્રસ્તુત",
+    subtitle: "આંતરરાષ્ટ્રીય તબીબી પરિષદોમાંથી વૈજ્ઞાનિક પ્રમાણીકરણ",
     conferences: [
       {
-        title: "International Symposium on Mind-Body Medicine",
-        host: "National Institutes of Health (NIH), Washington D.C.",
-        year: "2014",
-        detail: "Research on how mental silence reduces systemic inflammation and autonomic stress response."
+        title: "માઇન્ડ-बोडी મેડિસિન પર આંતરરાષ્ટ્રીય સિમ્પોઝિયમ",
+        host: "નેશનલ ઇન્સ્ટિટ્યુટ્સ ઓફ હેલ્થ (NIH), વોશિંગ્ટન ડી.સી.",
+        year: "૨૦१૪",
+        detail: "માનસિક મૌન કેવી રીતે શરીરના સોજા અને સ્વાયત્ત તણાવ પ્રતિક્રિયાને ઘટાડે છે તેના પર સંશોધન."
       },
       {
-        title: "Annual Conference of the Royal College of Psychiatrists",
-        host: "London, UK",
-        year: "2019",
-        detail: "Clinical trials demonstrating significant improvement in anxiety and depressive disorders through Sahaja Yoga."
+        title: "રોયલ કોલેજ ઓફ સાયકિયાટ્રિસ્ટ્સની વાર્ષિક પરિષદ",
+        host: "લંડન, યુકે",
+        year: "૨૦૧૯",
+        detail: "સહજયોગ દ્વારા ચિંતા અને હતાશામાં નોંધપાત્ર સુધારો દર્શાવતી ક્લિનિકલ ટ્રાયલ્સ."
       },
       {
-        title: "World Congress on Psychophysiology",
-        host: "Florence, Italy",
-        year: "2016",
-        detail: "EEG data mapping showing shift to high-amplitude alpha/theta coherence during thoughtless awareness."
+        title: "વર્લ્ડ કોંગ્રેસ ઓન સાયકોફિઝિયોલોજી",
+        host: "ફ્લોરેન્સ, ઈટાલી",
+        year: "૨૦૧૬",
+        detail: "વિચારશૂન્ય જાગૃતિ દરમિયાન ઉચ્ચ આયામની આલ્ફા/થીટા સુસંગતતા દર્શાવતો EEG ડેટા."
       }
     ]
   },
   videoSection: {
-    title: "Scientific Explanation of Sahaja Yoga",
-    subtitle: "Watch this video to understand the physiological and neurological mechanisms behind thoughtless awareness."
+    title: "સહજયોગનું વૈજ્ઞાનિક વિશ્લેષણ",
+    subtitle: "વિચારશૂન્ય જાગૃતિ પાછળની શારીરિક અને ન્યુરોલોજીકલ પ્રક્રિયાઓ સમજવા માટે આ વીડિયો જુઓ."
   },
   talksResources: {
-    title: "Lectures & Scientific Discourses",
-    subtitle: "Discourses by Dr. Nirmala Devi on the biological basis of meditation",
+    title: "વ્યાખ્યાનો અને વૈજ્ઞાનિક પ્રવચનો",
+    subtitle: "ધ્યાનના જૈવિક આધાર પર ડૉ. નિર્મલા દેવીના પ્રવચનો",
     categories: [
       {
-        title: "Medical Science and Meditation",
-        desc: "Sardar Patel Medical College, 1993. A detailed analysis of how the autonomic nervous system is regulated during deep meditation."
+        title: "તબીબી વિજ્ઞાન અને ધ્યાન",
+        desc: "સરદાર પટેલ મેડિકલ કોલેજ, ૧૯૯૩. ઊંડા ધ્યાન દરમિયાન સ્વાયત્ત ચેતાતંત્ર કેવી રીતે નિયંત્રિત થાય છે તેનું વિગતવાર વિશ્લેષણ."
       },
       {
-        title: "The Subtle System & Human Health",
-        desc: "Leipzig, Germany, 1990. Explanation of the correlation between ancient physiological energy centers and the physical plexuses."
+        title: "સૂક્ષ્મ પ્રણાલી અને માનવ સ્વાસ્થ્ય",
+        desc: "લીપઝિગ, જર્મની, ૧૯૯૦. પ્રાચીન શારીરિક ઉર્જા કેન્દ્રો અને વાસ્તવિક પ્લેક્સસ વચ્ચેના સંબંધની સમજૂતી."
       },
       {
-        title: "Role of Meditation in Education",
-        desc: "Delhi University, 1997. Guidelines for teachers and principals on implementing meditation to enhance student focus and memory."
+        title: "શિક્ષણમાં ધ્યાનની ભૂમિકા",
+        desc: "દિલ્હી યુનિવર્સિટી, ૧૯૯૭. વિદ્યાર્થીઓની એકાગ્રતા અને યાદશક્તિ વધારવા માટે ધ્યાન કેવી રીતે લાગુ કરવું તે અંગે શિક્ષકો અને આચાર્યો માટે માર્ગદર્શિકા."
       }
     ]
   },
   forSchools: {
-    title: "How to bring this to your school",
-    subtitle: "Simple, zero-cost, and structured implementation process",
+    title: "આને તમારી શાળામાં કેવી રીતે લાવવું",
+    subtitle: "સરળ, શૂન્ય-ખર્ચ અને સુવ્યવસ્થિત અમલીકરણ પ્રક્રિયા",
     steps: [
       {
-        number: "01",
-        title: "Request Workshop",
-        desc: "Fill the contact form below. Our local volunteer coordinator will contact you to align on dates and format."
+        number: "૦૧",
+        title: "વર્કશોપ માટે વિનંતી",
+        desc: "नीचे આપેલું સંપર્ક ફોર્મ ભરો. અમારા સ્થાનિક સ્વયંસેવક સંયોજક તારીખો નક્કી કરવા તમારો સંપર્ક કરશે."
       },
       {
-        number: "02",
-        title: "Introductory Session",
-        desc: "A 30-minute introductory presentation explaining the science, followed by a 10-minute practical trial."
+        number: "૦૨",
+        title: "પ્રારંભિક સત્ર",
+        desc: "વિજ્ઞાન સમજાવતી ૩૦ મિનિટની પ્રસ્તુતિ, ત્યારબાદ ૧૦ મિનિટનું વ્યવહારિક ધ્યાન સત્ર."
       },
       {
-        number: "03",
-        title: "Weekly Practice",
-        desc: "We provide training materials and visual guides for a 10-minute daily or weekly classroom session."
+        number: "૦૩",
+        title: "સાપ્તાહિક સરાવ",
+        desc: "અમે વર્ગખંડમાં ૧૦ મિનિટના દૈનિક અથવા સાપ્તાહિક સત્ર માટે તાલીમ સામગ્રી અને માર્ગદર્શિકાઓ પ્રદાન કરીએ છીએ."
       }
     ]
   },

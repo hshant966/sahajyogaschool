@@ -74,6 +74,7 @@ const LOCALIZED_FORM: Record<string, {
   errorRequired: string;
   errorPhone: string;
   trustBadges: string[];
+  helplineLabel: string;
 }> = {
   en: {
     contactNameLabel: "Principal / Contact Name *",
@@ -90,7 +91,8 @@ const LOCALIZED_FORM: Record<string, {
     range1000plus: "1000+",
     errorRequired: "Required",
     errorPhone: "Enter valid 10-digit number",
-    trustBadges: ["100% Free", "No Dogma", "Non-Religious", "Govt. Approved"]
+    trustBadges: ["100% Free", "No Dogma", "Non-Religious", "Govt. Approved"],
+    helplineLabel: "National Toll-Free Helpline: "
   },
   mr: {
     contactNameLabel: "प्राचार्य / संपर्क व्यक्तीचे नाव *",
@@ -107,7 +109,8 @@ const LOCALIZED_FORM: Record<string, {
     range1000plus: "१०००+",
     errorRequired: "आवश्यक आहे",
     errorPhone: "वैध १०-अंकी फोन नंबर प्रविष्ट करा",
-    trustBadges: ["१००% मोफत", "कोणतीही अंधश्रद्धा नाही", "धर्मनिरपेक्ष", "शासनमान्य"]
+    trustBadges: ["१००% मोफत", "कोणतीही अंधश्रद्धा नाही", "धर्मनिरपेक्ष", "शासनमान्य"],
+    helplineLabel: "राष्ट्रीय टोल-फ्री हेल्पलाइन: "
   },
   hi: {
     contactNameLabel: "प्राचार्य / संपर्क व्यक्ति का नाम *",
@@ -124,7 +127,44 @@ const LOCALIZED_FORM: Record<string, {
     range1000plus: "१०००+",
     errorRequired: "आवश्यक है",
     errorPhone: "वैध १०-अंकीय फोन नंबर दर्ज करें",
-    trustBadges: ["१००% निःशुल्क", "कोई अंधविश्वास नहीं", "धर्मनिरपेक्ष", "शासकीय स्वीकृत"]
+    trustBadges: ["१००% निःशुल्क", "कोई अंधविश्वास नहीं", "धर्मनिरपेक्ष", "शासकीय स्वीकृत"],
+    helplineLabel: "राष्ट्रीय टोल-फ्री हेल्पलाइन: "
+  },
+  gu: {
+    contactNameLabel: "આચાર્ય / સંપર્ક વ્યક્તિનું નામ *",
+    schoolNameLabel: "શાળાનું નામ *",
+    cityLabel: "શહેર / જિલ્લો *",
+    cityPlaceholder: "શહેર કે જિલ્લો લખો",
+    phoneLabel: "ફોન નંબર *",
+    emailLabel: "ઈમેલ (વૈકલ્પિક)",
+    studentsLabel: "વિદ્યાર્થીઓની સંખ્યા *",
+    selectRange: "સંખ્યા પસંદ કરો",
+    under200: "૨૦૦થી ઓછી",
+    range200to500: "૨૦૦ – ૫૦૦",
+    range500to1000: "૫૦૦ – ૧૦૦૦",
+    range1000plus: "૧૦૦૦+",
+    errorRequired: "આવશ્યક છે",
+    errorPhone: "૧૦ અંકનો સાચો ફોન નંબર લખો",
+    trustBadges: ["૧૦૦% મફત", "કોઈ અંધશ્રદ્ધા નહીં", "બિન-ધાર્મિક", "સરકારી મંજૂર"],
+    helplineLabel: "રાષ્ટ્રીય ટોલ-ફ્રી હેલ્પલાઇન: "
+  },
+  ta: {
+    contactNameLabel: "தலைமையாசிரியர் / தொடர்பு நபர் பெயர் *",
+    schoolNameLabel: "பள்ளியின் பெயர் *",
+    cityLabel: "நகரம் / மாவட்டம் *",
+    cityPlaceholder: "நகரம் அல்லது மாவட்டத்தை உள்ளிடவும்",
+    phoneLabel: "தொலைபேசி எண் *",
+    emailLabel: "மின்னஞ்சல் (விருப்பத்திற்குரியது)",
+    studentsLabel: "மாணவர்களின் எண்ணிக்கை *",
+    selectRange: "எண்ணிக்கையைத் தேர்ந்தெடுக்கவும்",
+    under200: "200-க்கும் கீழ்",
+    range200to500: "200 – 500",
+    range500to1000: "500 – 1000",
+    range1000plus: "1000+",
+    errorRequired: "தேவைப்படுகிறது",
+    errorPhone: "சரியான 10 இலக்க எண்ணை உள்ளிடவும்",
+    trustBadges: ["100% இலவசம்", "மூடநம்பிக்கை இல்லை", "மதசார்பற்றது", "அரசு அங்கீகாரம் பெற்றது"],
+    helplineLabel: "தேசிய இலவச உதவி எண்: "
   }
 };
 
@@ -183,6 +223,10 @@ export default function CTAForm() {
           <p className="text-[#B7E4C7] mt-4 text-lg">
             {t.cta.subtitle}
           </p>
+          <div className="mt-4 flex items-center justify-center gap-2 text-sm text-[#F0D98D] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse flex-shrink-0" />
+            <span>{f.helplineLabel}<a href="tel:18002700800" className="hover:underline font-mono">1800-2700-800</a></span>
+          </div>
         </div>
 
         {submitted ? (
