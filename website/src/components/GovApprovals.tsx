@@ -129,6 +129,41 @@ export default function GovApprovals() {
         <p className="mt-10 text-center text-[#6B7280] text-sm">
           Additionally recognized by school boards in Maharashtra, Gujarat, and Karnataka.
         </p>
+
+        {/* Download official letters */}
+        <div className="mt-12 border-t border-[#2D6A4F] pt-10">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#52B788] mb-5 text-center">
+            Download Official Permission Letters
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/pune-zp-permission-letter.pdf"
+              download="Pune-ZP-Permission-Letter.pdf"
+              className="flex items-center gap-3 px-6 py-4 rounded-xl bg-[#1a3d2b] border border-[#2D6A4F] hover:border-[#C9A84C] hover:bg-[#1f4a33] transition-all group"
+            >
+              <svg className="w-5 h-5 text-[#C9A84C] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <div>
+                <p className="text-white text-sm font-semibold group-hover:text-[#C9A84C] transition-colors">Pune Zilla Parishad</p>
+                <p className="text-[#6B7280] text-xs">Official authorization letter · 2024</p>
+              </div>
+            </a>
+            <a
+              href="/school-permission-letter.pdf"
+              download="School-Permission-Letter.pdf"
+              className="flex items-center gap-3 px-6 py-4 rounded-xl bg-[#1a3d2b] border border-[#2D6A4F] hover:border-[#C9A84C] hover:bg-[#1f4a33] transition-all group"
+            >
+              <svg className="w-5 h-5 text-[#C9A84C] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <div>
+                <p className="text-white text-sm font-semibold group-hover:text-[#C9A84C] transition-colors">School Permission Letter</p>
+                <p className="text-[#6B7280] text-xs">Official authorization letter</p>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

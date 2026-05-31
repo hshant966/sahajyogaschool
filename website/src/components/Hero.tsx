@@ -120,49 +120,40 @@ export default function Hero() {
           {/* Headline */}
           <h1
             ref={headlineRef}
-            className="font-serif text-6xl lg:text-7xl xl:text-8xl font-semibold text-[#0F2A1E] max-w-4xl"
+            className="font-serif text-5xl lg:text-7xl xl:text-8xl font-semibold text-[#0F2A1E] max-w-4xl"
             style={{ lineHeight: "1.05" }}
           >
-            The Science of<br />Mental Silence
+            {t.hero.headline}
           </h1>
-
-          {/* Subline with gold accent */}
-          <div className="flex flex-col gap-3">
-            <p className="text-base lg:text-lg italic text-[#C9A84C]">
-              {t.hero.subline}
-            </p>
-            <div className="w-16 h-0.5 bg-[#C9A84C]" />
-          </div>
 
           {/* Credential bar */}
           <a
-            href="#gov"
-            className="inline-flex items-center gap-2 text-xs text-[#6B7280] hover:text-[#0F2A1E] transition-colors group w-fit"
+            href="#contact"
+            className="inline-flex items-center gap-2 text-xs text-[#6B7280] hover:text-[#0F2A1E] transition-colors group w-fit animate-pulse"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] flex-shrink-0" />
             <span className="font-mono">
-              Pune Zilla Parishad authorized · Ref: जा.क्र. जिप/शिक्षण/प्राथ.२/यो-१४५/१३२४/२०२४
+              {t.hero.credential}
             </span>
             <span className="text-[#C9A84C] group-hover:translate-x-0.5 transition-transform">↗</span>
           </a>
 
-          {/* Body */}
-          <p className="text-base lg:text-lg leading-relaxed text-[#6B7280] max-w-lg">
-            {t.hero.body}{" "}
-            <span className="text-[#0F2A1E] font-medium">Authorized for schools and colleges. Zero cost. Zero religion.</span>
+          {/* Body / Subline */}
+          <p className="text-base lg:text-lg leading-relaxed text-[#6B7280] max-w-2xl">
+            {t.hero.subline}
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 items-start">
             <a
-              href="#research"
-              className="px-6 py-3 rounded-full border-2 border-[#52B788] text-[#52B788] font-medium hover:bg-[#52B788] hover:text-white transition-all"
+              href="#contact"
+              className="px-6 py-3 rounded-full bg-[#0F2A1E] text-white font-medium hover:bg-[#2D6A4F] transition-colors"
             >
               {t.hero.ctaPrimary}
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 rounded-full bg-[#0F2A1E] text-white font-medium hover:bg-[#2D6A4F] transition-colors"
+              className="px-6 py-3 rounded-full border-2 border-[#52B788] text-[#52B788] font-medium hover:bg-[#52B788] hover:text-white transition-all"
             >
               {t.hero.ctaSecondary}
             </a>
@@ -170,12 +161,12 @@ export default function Hero() {
 
           {/* Trust pills — premium styling */}
           <div className="flex flex-wrap gap-3">
-            {["King's College London", "NIH Funded", "Govt. Authorized", "Schools & Colleges"].map((t) => (
+            {["King's College London", "NIH Funded", "Govt. Authorized", "Schools & Colleges"].map((badge) => (
               <span
-                key={t}
+                key={badge}
                 className="px-4 py-1.5 rounded-full bg-white border-2 border-[#52B788] text-[#0F2A1E] text-xs font-medium shadow-sm hover:shadow-md transition-shadow"
               >
-                {t}
+                {badge}
               </span>
             ))}
           </div>

@@ -3,19 +3,41 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 import type { Lang } from "@/lib/translations";
 
 const navLinks = [
-  { label: "Research", href: "#research" },
-  { label: "Benefits", href: "#benefits" },
-  { label: "For Schools", href: "#schools" },
-  { label: "Contact", href: "#contact" },
+  { labelKey: "whatIs" as const, href: "#what-is" },
+  { labelKey: "research" as const, href: "#research" },
+  { labelKey: "benefits" as const, href: "#benefits" },
+  { labelKey: "schools" as const, href: "#schools" },
+  { labelKey: "contact" as const, href: "#contact" },
 ];
 
 const liveLangs: { code: Lang; label: string; native: string }[] = [
   { code: "en", label: "English", native: "EN" },
   { code: "mr", label: "Marathi", native: "मराठी" },
   { code: "hi", label: "Hindi", native: "हिंदी" },
+  { code: "bn", label: "Bengali", native: "বাংলা" },
+  { code: "te", label: "Telugu", native: "తెలుగు" },
+  { code: "ta", label: "Tamil", native: "தமிழ்" },
+  { code: "ur", label: "Urdu", native: "اردو" },
+  { code: "gu", label: "Gujarati", native: "ગુજરાતી" },
+  { code: "kn", label: "Kannada", native: "ಕನ್ನಡ" },
+  { code: "or", label: "Odia", native: "ଓଡ଼ିଆ" },
+  { code: "ml", label: "Malayalam", native: "മലയാളം" },
+  { code: "pa", label: "Punjabi", native: "ਪੰਜਾਬੀ" },
+  { code: "as", label: "Assamese", native: "অসমীয়া" },
+  { code: "mai", label: "Maithili", native: "मैथिली" },
+  { code: "sa", label: "Sanskrit", native: "संस्कृतम्" },
+  { code: "kok", label: "Konkani", native: "कोंकणी" },
+  { code: "ne", label: "Nepali", native: "नेपाली" },
+  { code: "sd", label: "Sindhi", native: "سنڌي" },
+  { code: "doi", label: "Dogri", native: "डोगरी" },
+  { code: "mni", label: "Manipuri", native: "মৈতৈলোন্" },
+  { code: "sat", label: "Santali", native: "ᱥᱟᱱᱛᱟᱲᱤ" },
+  { code: "ks", label: "Kashmiri", native: "كٲشُر" },
+  { code: "brx", label: "Bodo", native: "बड़ो" }
 ];
 
 export default function Navigation() {
@@ -24,6 +46,7 @@ export default function Navigation() {
   const [langOpen, setLangOpen] = useState(false);
   const { lang, setLang } = useLang();
   const modalRef = useRef<HTMLDivElement>(null);
+  const t = translations[lang];
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
@@ -75,7 +98,7 @@ export default function Navigation() {
                 href={link.href}
                 className="text-sm text-[#6B7280] hover:text-[#0F2A1E] transition-colors font-medium"
               >
-                {link.label}
+                {t.nav[link.labelKey]}
               </a>
             ))}
           </div>
@@ -100,7 +123,7 @@ export default function Navigation() {
               href="#contact"
               className="px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-[#0F2A1E] hover:bg-[#2D6A4F] transition-colors"
             >
-              Request a Session
+              {t.cta.submit}
             </a>
           </div>
 
@@ -138,7 +161,7 @@ export default function Navigation() {
                 className="text-sm text-[#0F2A1E] font-medium py-2"
                 onClick={() => setMenuOpen(false)}
               >
-                {link.label}
+                {t.nav[link.labelKey]}
               </a>
             ))}
             <a
@@ -146,7 +169,7 @@ export default function Navigation() {
               className="px-5 py-3 rounded-full text-sm font-semibold text-white bg-[#0F2A1E] text-center"
               onClick={() => setMenuOpen(false)}
             >
-              Request a Session
+              {t.cta.submit}
             </a>
           </div>
         )}
@@ -161,11 +184,11 @@ export default function Navigation() {
           {/* Modal / bottom sheet */}
           <div
             ref={modalRef}
-            className="relative w-full sm:w-auto sm:min-w-[320px] bg-[#FAFAF7] rounded-t-3xl sm:rounded-2xl p-6 shadow-2xl border border-[#E5E5E0]"
+            className="relative w-full sm:w-[480px] bg-[#FAFAF7] rounded-t-3xl sm:rounded-2xl p-6 shadow-2xl border border-[#E5E5E0] max-h-[85vh] overflow-y-auto"
           >
             <div className="flex items-center justify-between mb-5">
               <h3 className="font-serif text-lg font-semibold text-[#0F2A1E]">
-                Choose Language
+                Choose Language / भाषा निवडा / भाषा चुनें
               </h3>
               <button
                 onClick={() => setLangOpen(false)}
@@ -177,29 +200,24 @@ export default function Navigation() {
             </div>
 
             {/* Live languages */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="grid grid-cols-2 gap-2 mb-4">
               {liveLangs.map((l) => (
                 <button
                   key={l.code}
                   onClick={() => { setLang(l.code); setLangOpen(false); }}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                  className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-between ${
                     lang === l.code
                       ? "bg-[#C9A84C] text-[#0F2A1E]"
                       : "bg-white border border-[#E5E5E0] text-[#0F2A1E] hover:border-[#52B788]"
                   }`}
                 >
-                  {l.native}
+                  <span>{l.label} ({l.native})</span>
                   {lang === l.code && (
-                    <span className="ml-1.5 text-xs opacity-70">✓</span>
+                    <span className="text-xs font-bold text-[#0F2A1E]">✓</span>
                   )}
                 </button>
               ))}
             </div>
-
-            {/* Coming soon note */}
-            <p className="text-xs text-[#9CA3AF] border-t border-[#E5E5E0] pt-4">
-              19 more Bharatiya languages coming soon — Bengali, Telugu, Tamil, Gujarati, Kannada, Malayalam, and more.
-            </p>
           </div>
         </div>
       )}

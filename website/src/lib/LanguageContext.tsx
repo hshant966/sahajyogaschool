@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import type { Lang } from "./translations";
 
 interface LangCtx {
@@ -24,6 +24,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       localStorage.setItem("sy_lang", l);
     }
   };
+
+  useEffect(() => {
+    const RTL_LANGS = new Set(["ur", "sd", "ks"]);
+    const dir = RTL_LANGS.has(lang) ? "rtl" : "ltr";
+    document.documentElement.dir = dir;
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   return (
     <LanguageContext.Provider value={{ lang, setLang }}>

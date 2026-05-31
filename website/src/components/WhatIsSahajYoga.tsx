@@ -72,6 +72,7 @@ export default function WhatIsSahajYoga() {
   return (
     <section
       ref={sectionRef}
+      id="what-is"
       className="w-full py-24 lg:py-36 bg-white border-t border-[#E5E5E0]"
     >
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-16">
@@ -79,33 +80,32 @@ export default function WhatIsSahajYoga() {
         <div data-heading className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-end">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-              {t.whatIs.label}
+              {t.whatIs.title}
             </span>
             <h2 className="font-serif text-5xl lg:text-6xl font-semibold text-[#0F2A1E] mt-3 leading-tight">
-              {t.whatIs.headline1}
-              <br />
-              <span className="text-[#52B788]">{t.whatIs.headline2}</span>
+              {t.whatIs.subtitle}
             </h2>
           </div>
           <div>
             <p className="text-[#6B7280] text-lg leading-relaxed">
-              {t.whatIs.sub}
+              {t.whatIs.body1}
             </p>
-            <div className="mt-6 flex gap-6">
-              <div>
-                <p className="font-serif text-4xl font-bold text-[#C9A84C]">30+</p>
-                <p className="text-xs text-[#9CA3AF] uppercase tracking-wide mt-1">PubMed-indexed studies</p>
-              </div>
-              <div className="w-px bg-[#E5E5E0]" />
-              <div>
-                <p className="font-serif text-4xl font-bold text-[#52B788]">6</p>
-                <p className="text-xs text-[#9CA3AF] uppercase tracking-wide mt-1">Countries researched</p>
-              </div>
-              <div className="w-px bg-[#E5E5E0]" />
-              <div>
-                <p className="font-serif text-4xl font-bold text-[#0F2A1E]">1970</p>
-                <p className="text-xs text-[#9CA3AF] uppercase tracking-wide mt-1">Year founded</p>
-              </div>
+            <p className="text-[#6B7280] text-sm leading-relaxed mt-4">
+              {t.whatIs.body2}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-6 items-center">
+              <a
+                href="#research"
+                className="text-sm font-semibold text-[#52B788] hover:text-[#2D6A4F] transition-colors"
+              >
+                {t.whatIs.learnMore} →
+              </a>
+              <a
+                href="#contact"
+                className="px-4 py-2 rounded-full border border-[#0F2A1E] text-[#0F2A1E] text-xs font-medium hover:bg-[#0F2A1E] hover:text-white transition-colors"
+              >
+                {t.whatIs.watchVideo}
+              </a>
             </div>
           </div>
         </div>
@@ -142,14 +142,6 @@ export default function WhatIsSahajYoga() {
               <p className="text-[#6B7280] text-sm leading-relaxed">{p.body}</p>
             </motion.div>
           ))}
-        </div>
-
-        {/* Pull quote */}
-        <div className="mt-20 py-12 border-y border-[#E5E5E0] text-center">
-          <p className="font-serif text-3xl lg:text-4xl text-[#0F2A1E] max-w-3xl mx-auto leading-snug italic">
-            {t.whatIs.quote}{" "}
-            <span className="text-[#C9A84C]">{t.whatIs.quoteAccent}</span>
-          </p>
         </div>
       </div>
     </section>

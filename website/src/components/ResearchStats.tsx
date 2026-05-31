@@ -73,10 +73,10 @@ export default function ResearchStats() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start mb-16">
           <div className="lg:col-span-2">
             <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-              {t.stats.label}
+              {t.stats.title}
             </span>
             <h2 className="font-serif text-5xl lg:text-6xl font-semibold text-white mt-3 leading-tight">
-              {t.stats.heading}
+              {t.stats.subtitle}
             </h2>
           </div>
           <div className="lg:col-span-3">
