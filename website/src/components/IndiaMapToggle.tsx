@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useLang } from "@/lib/LanguageContext";
-import { translations } from "@/lib/translations";
 import type { Lang } from "@/lib/translations";
 import { Globe, X } from "lucide-react";
 
@@ -173,7 +172,6 @@ export default function IndiaMapToggle() {
   const { lang, setLang } = useLang();
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-  const t = translations[lang];
   const mapLabels = LOCALIZED_MAP[lang] || LOCALIZED_MAP["en"];
 
   // Disable scroll when modal is open
@@ -253,7 +251,7 @@ export default function IndiaMapToggle() {
           });
 
           // Click handler
-          path.addEventListener("click", (e) => {
+          path.addEventListener("click", () => {
             const data = STATE_LANGS[id];
             if (!data) {
               // Fallback default: English

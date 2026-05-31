@@ -15,7 +15,7 @@ const LOCALIZED_VIDEO_DATA: Record<string, {
   part1Title: string;
   continueText: string;
   channelNote: string;
-  playlist: { part: number; title: string; videoId: string }[];
+  playlist: PlaylistVideo[];
 }> = {
   en: {
     part1Title: "Part 1: Introduction",
@@ -189,6 +189,7 @@ export default function VideoSection() {
               >
                 {/* YouTube Thumbnail */}
                 <div className="relative bg-[#1C1917] aspect-video flex items-center justify-center overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={`https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg`}
                     alt={`Part ${video.part}: ${video.title}`}

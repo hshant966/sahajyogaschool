@@ -95,7 +95,7 @@ export default function ProgramOverview() {
                 <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#52B788] mt-1.5" />
                 <div>
                   <p className="text-sm font-semibold text-[#0F2A1E]">
-                    King's College London — EEG Brain Study (Prof. Katya Rubia, Cognitive Neuroscience)
+                    King&apos;s College London — EEG Brain Study (Prof. Katya Rubia, Cognitive Neuroscience)
                   </p>
                   <p className="text-xs text-[#6B7280] leading-relaxed mt-0.5">
                     Theta wave activity (deep focused attention, creativity) increases significantly during meditation, concentrated in frontal and temporal areas. Long-term meditators develop thicker cortex in attention areas — meditation is measurably anti-ageing for the brain.
@@ -106,7 +106,7 @@ export default function ProgramOverview() {
                 <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#52B788] mt-1.5" />
                 <div>
                   <p className="text-sm font-semibold text-[#0F2A1E]">
-                    ADHD — Children's Concentration Study (6-week program)
+                    ADHD — Children&apos;s Concentration Study (6-week program)
                   </p>
                   <p className="text-xs text-[#6B7280] leading-relaxed mt-0.5">
                     A 6-week family-oriented program with parents reported significant improvements in ADHD-related behavior, concentration, sleep, anxiety, and family relationships. Published in Clinical Child Psychology &amp; Psychiatry (2004). No adverse effects reported.
@@ -131,7 +131,7 @@ export default function ProgramOverview() {
                     Delhi University — Academic Performance &amp; Focus
                   </p>
                   <p className="text-xs text-[#6B7280] leading-relaxed mt-0.5">
-                    Research confirmed measurable improvements in students' concentration, memory retention, and academic performance after a 6-week meditation program.
+                    Research confirmed measurable improvements in students&apos; concentration, memory retention, and academic performance after a 6-week meditation program.
                   </p>
                 </div>
               </div>

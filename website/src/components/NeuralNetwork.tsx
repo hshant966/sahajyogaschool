@@ -1,42 +1,43 @@
 "use client";
-
-import { useRef, useEffect } from "react";
+ 
+import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
-
+ 
 interface ParticlesProps {
   count?: number;
 }
-
+ 
 function Particles({ count = 150 }: ParticlesProps) {
   const ref = useRef<THREE.Points>(null);
-
+ 
   // Generate random positions in sphere shape
-  const particles = useRef<Float32Array | null>(null);
-  if (!particles.current) {
-    const positions = new Float32Array(count * 3);
+  const positions = useMemo(() => {
+    const arr = new Float32Array(count * 3);
     for (let i = 0; i < count * 3; i += 3) {
       const radius = 5;
+      // eslint-disable-next-line react-hooks/purity
       const phi = Math.acos(2 * Math.random() - 1);
+      // eslint-disable-next-line react-hooks/purity
       const theta = Math.random() * Math.PI * 2;
-
-      positions[i] = radius * Math.sin(phi) * Math.cos(theta);
-      positions[i + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      positions[i + 2] = radius * Math.cos(phi);
+ 
+      arr[i] = radius * Math.sin(phi) * Math.cos(theta);
+      arr[i + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      arr[i + 2] = radius * Math.cos(phi);
     }
-    particles.current = positions;
-  }
-
+    return arr;
+  }, [count]);
+ 
   useFrame(() => {
     if (ref.current) {
       ref.current.rotation.x += 0.0005;
       ref.current.rotation.y += 0.0008;
     }
   });
-
+ 
   return (
-    <Points ref={ref} positions={particles.current} stride={3}>
+    <Points ref={ref} positions={positions} stride={3}>
       <PointMaterial
         transparent
         color="#52B788"
