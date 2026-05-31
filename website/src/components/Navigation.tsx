@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
-import type { Lang } from "@/lib/translations";
+import IndiaMapToggle from "./IndiaMapToggle";
 
 const navLinks = [
   { labelKey: "whatIs" as const, href: "#what-is" },
@@ -14,38 +14,10 @@ const navLinks = [
   { labelKey: "contact" as const, href: "#contact" },
 ];
 
-const liveLangs: { code: Lang; label: string; native: string }[] = [
-  { code: "en", label: "English", native: "EN" },
-  { code: "mr", label: "Marathi", native: "मराठी" },
-  { code: "hi", label: "Hindi", native: "हिंदी" },
-  { code: "bn", label: "Bengali", native: "বাংলা" },
-  { code: "te", label: "Telugu", native: "తెలుగు" },
-  { code: "ta", label: "Tamil", native: "தமிழ்" },
-  { code: "ur", label: "Urdu", native: "اردو" },
-  { code: "gu", label: "Gujarati", native: "ગુજરાતી" },
-  { code: "kn", label: "Kannada", native: "ಕನ್ನಡ" },
-  { code: "or", label: "Odia", native: "ଓଡ଼ିଆ" },
-  { code: "ml", label: "Malayalam", native: "മലയാളം" },
-  { code: "pa", label: "Punjabi", native: "ਪੰਜਾਬੀ" },
-  { code: "as", label: "Assamese", native: "অসমীয়া" },
-  { code: "mai", label: "Maithili", native: "मैथिली" },
-  { code: "sa", label: "Sanskrit", native: "संस्कृतम्" },
-  { code: "kok", label: "Konkani", native: "कोंकणी" },
-  { code: "ne", label: "Nepali", native: "नेपाली" },
-  { code: "sd", label: "Sindhi", native: "سنڌي" },
-  { code: "doi", label: "Dogri", native: "डोगरी" },
-  { code: "mni", label: "Manipuri", native: "মৈতৈলোন্" },
-  { code: "sat", label: "Santali", native: "ᱥᱟᱱᱛᱟᱲᱤ" },
-  { code: "ks", label: "Kashmiri", native: "كٲشُر" },
-  { code: "brx", label: "Bodo", native: "बड़ो" }
-];
-
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
-  const { lang, setLang } = useLang();
-  const modalRef = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
   const t = translations[lang];
 
   useEffect(() => {
@@ -53,24 +25,6 @@ export default function Navigation() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    if (!langOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLangOpen(false);
-    };
-    const onClickOutside = (e: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        setLangOpen(false);
-      }
-    };
-    document.addEventListener("keydown", onKey);
-    document.addEventListener("mousedown", onClickOutside);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.removeEventListener("mousedown", onClickOutside);
-    };
-  }, [langOpen]);
 
   return (
     <>
@@ -104,20 +58,8 @@ export default function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            {/* Globe language button */}
-            <button
-              onClick={() => setLangOpen(true)}
-              aria-label="Switch language"
-              className="p-2 rounded-full hover:bg-[#E5E5E0]/60 transition-colors text-[#6B7280] hover:text-[#0F2A1E] flex items-center gap-1.5"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" strokeWidth="1.5" />
-                <path strokeWidth="1.5" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
-              </svg>
-              <span className="text-xs font-semibold uppercase tracking-wide">
-                {liveLangs.find((l) => l.code === lang)?.native ?? "EN"}
-              </span>
-            </button>
+            {/* Interactive SVG India Map selector */}
+            <IndiaMapToggle />
 
             <a
               href="#contact"
@@ -127,20 +69,11 @@ export default function Navigation() {
             </a>
           </div>
 
-          {/* Mobile: globe + hamburger */}
+          {/* Mobile: Map Toggle + Hamburger */}
           <div className="md:hidden flex items-center gap-2">
+            <IndiaMapToggle />
             <button
-              onClick={() => setLangOpen(true)}
-              aria-label="Switch language"
-              className="p-2 text-[#6B7280]"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" strokeWidth="1.5" />
-                <path strokeWidth="1.5" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
-              </svg>
-            </button>
-            <button
-              className="p-2 text-[#0F2A1E]"
+              className="p-2 text-[#0F2A1E] cursor-pointer"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
@@ -174,53 +107,6 @@ export default function Navigation() {
           </div>
         )}
       </nav>
-
-      {/* Language modal overlay */}
-      {langOpen && (
-        <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center">
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-
-          {/* Modal / bottom sheet */}
-          <div
-            ref={modalRef}
-            className="relative w-full sm:w-[480px] bg-[#FAFAF7] rounded-t-3xl sm:rounded-2xl p-6 shadow-2xl border border-[#E5E5E0] max-h-[85vh] overflow-y-auto"
-          >
-            <div className="flex items-center justify-between mb-5">
-              <h3 className="font-serif text-lg font-semibold text-[#0F2A1E]">
-                Choose Language / भाषा निवडा / भाषा चुनें
-              </h3>
-              <button
-                onClick={() => setLangOpen(false)}
-                className="w-8 h-8 rounded-full bg-[#E5E5E0] flex items-center justify-center text-[#6B7280] hover:bg-[#d0d0ca] transition-colors text-sm"
-                aria-label="Close"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* Live languages */}
-            <div className="grid grid-cols-2 gap-2 mb-4">
-              {liveLangs.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => { setLang(l.code); setLangOpen(false); }}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-between ${
-                    lang === l.code
-                      ? "bg-[#C9A84C] text-[#0F2A1E]"
-                      : "bg-white border border-[#E5E5E0] text-[#0F2A1E] hover:border-[#52B788]"
-                  }`}
-                >
-                  <span>{l.label} ({l.native})</span>
-                  {lang === l.code && (
-                    <span className="text-xs font-bold text-[#0F2A1E]">✓</span>
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

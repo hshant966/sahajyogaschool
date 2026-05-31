@@ -2,6 +2,8 @@
 
 import { motion, easeOut } from "framer-motion";
 import { Play } from "lucide-react";
+import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 interface PlaylistVideo {
   part: number;
@@ -38,6 +40,9 @@ const itemVariants = {
 };
 
 export default function VideoSection() {
+  const { lang } = useLang();
+  const t = translations[lang];
+
   return (
     <section className="w-full bg-[#0F2A1E] py-24">
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-16">
@@ -50,7 +55,7 @@ export default function VideoSection() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-            Watch the Research
+            {t.nav.research}
           </span>
           <div className="w-2 h-2 rounded-full bg-[#52B788]" />
         </motion.div>
@@ -63,7 +68,7 @@ export default function VideoSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          Prof. Katya Rubia on the science
+          {t.videoSection.title}
         </motion.h2>
 
         {/* Subtitle */}
@@ -74,7 +79,7 @@ export default function VideoSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Professor of Cognitive Neuroscience, King's College London — 6-part lecture series
+          {t.videoSection.subtitle}
         </motion.p>
 
         {/* Featured Video */}

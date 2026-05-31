@@ -5,47 +5,15 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, easeOut } from "framer-motion";
+import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const approvals = [
-  {
-    state: "Telangana",
-    badge: "State Government",
-    schools: "39,603",
-    schoolLabel: "Schools",
-    students: "61 Lakh",
-    studentLabel: "Students",
-    detail: "Including 12,722 private schools. Official order by Education Department.",
-    year: "2023",
-    flag: "🏛️",
-  },
-  {
-    state: "Haryana",
-    badge: "State Government",
-    schools: "500+",
-    schoolLabel: "Schools",
-    students: "50,000",
-    studentLabel: "Students",
-    detail: "Ambala District implementation. Education Department order.",
-    year: "2015",
-    flag: "🏛️",
-  },
-  {
-    state: "Kendriya Vidyalaya",
-    badge: "Central Government",
-    schools: "All India",
-    schoolLabel: "Approval",
-    students: "Central",
-    studentLabel: "Schools",
-    detail: "All states and union territories. Central Government school network.",
-    year: "2022",
-    flag: "🇮🇳",
-  },
-];
-
 export default function GovApprovals() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const t = translations[lang];
 
   useGSAP(
     () => {
@@ -70,18 +38,18 @@ export default function GovApprovals() {
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-16">
         <div data-heading className="mb-16">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-            Government Recognition
+            {t.govApprovals.label}
           </span>
           <h2 className="font-serif text-5xl lg:text-6xl font-semibold text-white mt-3">
-            Approved by Government of India
+            {t.govApprovals.title}
           </h2>
           <p className="text-[#B7E4C7] mt-4 text-lg max-w-2xl">
-            State and central government bodies have independently reviewed and approved this program. This is not a pilot — it is in active deployment.
+            {t.govApprovals.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {approvals.map((a, i) => (
+          {t.govApprovals.states.map((a, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -127,13 +95,13 @@ export default function GovApprovals() {
         </div>
 
         <p className="mt-10 text-center text-[#6B7280] text-sm">
-          Additionally recognized by school boards in Maharashtra, Gujarat, and Karnataka.
+          {t.govApprovals.disclaimer}
         </p>
 
         {/* Download official letters */}
         <div className="mt-12 border-t border-[#2D6A4F] pt-10">
           <p className="text-xs font-semibold uppercase tracking-widest text-[#52B788] mb-5 text-center">
-            Download Official Permission Letters
+            {t.govApprovals.downloadLabel}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -145,8 +113,8 @@ export default function GovApprovals() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <div>
-                <p className="text-white text-sm font-semibold group-hover:text-[#C9A84C] transition-colors">Pune Zilla Parishad</p>
-                <p className="text-[#6B7280] text-xs">Official authorization letter · 2024</p>
+                <p className="text-white text-sm font-semibold group-hover:text-[#C9A84C] transition-colors">{t.govApprovals.puneZPName}</p>
+                <p className="text-[#6B7280] text-xs">{t.govApprovals.puneZPDesc}</p>
               </div>
             </a>
             <a
@@ -158,8 +126,8 @@ export default function GovApprovals() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <div>
-                <p className="text-white text-sm font-semibold group-hover:text-[#C9A84C] transition-colors">School Permission Letter</p>
-                <p className="text-[#6B7280] text-xs">Official authorization letter</p>
+                <p className="text-white text-sm font-semibold group-hover:text-[#C9A84C] transition-colors">{t.govApprovals.schoolLetterName}</p>
+                <p className="text-[#6B7280] text-xs">{t.govApprovals.schoolLetterDesc}</p>
               </div>
             </a>
           </div>

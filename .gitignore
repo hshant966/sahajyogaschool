@@ -1,2 +1,9 @@
 Sahaj Resources_files/
 Sahaj Resources.html
+source-data/
+creative/
+.superpowers/
+website/.superpowers/
+*.pdf
+!website/public/*.pdf
+GEMINI-MASTER-PROMPT.md

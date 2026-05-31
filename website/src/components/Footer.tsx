@@ -4,10 +4,10 @@ import { useLang } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
 
 const footerLinks = [
-  { label: "Research", href: "#research" },
-  { label: "Benefits", href: "#benefits" },
-  { label: "For Schools", href: "#schools" },
-  { label: "Contact", href: "#contact" },
+  { labelKey: "research" as const, href: "#research" },
+  { labelKey: "benefits" as const, href: "#benefits" },
+  { labelKey: "schools" as const, href: "#schools" },
+  { labelKey: "contact" as const, href: "#contact" },
 ];
 
 const institutions = [
@@ -20,9 +20,17 @@ const institutions = [
   "Belapur Medical Research Center, India",
 ];
 
+const LOCALIZED_LABELS: Record<string, { nav: string; inst: string; free: string; noRel: string; govt: string }> = {
+  en: { nav: "Navigation", inst: "Research Institutions", free: "100% Free", noRel: "Non-Religious", govt: "Govt. Approved" },
+  mr: { nav: "नेव्हिगेशन", inst: "संशोधन संस्था", free: "१००% मोफत", noRel: "धर्मनिरपेक्ष", govt: "शासन मान्यताप्राप्त" },
+  hi: { nav: "नेविगेशन", inst: "अनुसंधान संस्थान", free: "१००% निःशुल्क", noRel: "धर्मनिरपेक्ष", govt: "शासकीय स्वीकृत" }
+};
+
 export default function Footer() {
   const { lang } = useLang();
   const t = translations[lang];
+  const labels = LOCALIZED_LABELS[lang] || LOCALIZED_LABELS["en"];
+
   return (
     <footer className="w-full bg-[#0F2A1E] text-white">
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-16 py-16">
@@ -41,7 +49,7 @@ export default function Footer() {
               {t.footer.tagline}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["100% Free", "Non-Religious", "Govt. Approved"].map((b) => (
+              {[labels.free, labels.noRel, labels.govt].map((b) => (
                 <span key={b} className="text-xs px-3 py-1 rounded-full bg-[#1a3d2b] text-[#B7E4C7] border border-[#2D6A4F]">
                   {b}
                 </span>
@@ -51,12 +59,12 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-serif text-base font-semibold mb-5 text-white">Navigation</h3>
+            <h3 className="font-serif text-base font-semibold mb-5 text-white">{labels.nav}</h3>
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <a href={link.href} className="text-[#B7E4C7] hover:text-white transition-colors text-sm">
-                    {link.label}
+                    {t.nav[link.labelKey]}
                   </a>
                 </li>
               ))}
@@ -65,7 +73,7 @@ export default function Footer() {
 
           {/* Research Institutions */}
           <div>
-            <h3 className="font-serif text-base font-semibold mb-5 text-white">Research Institutions</h3>
+            <h3 className="font-serif text-base font-semibold mb-5 text-white">{labels.inst}</h3>
             <ul className="space-y-2">
               {institutions.map((inst) => (
                 <li key={inst} className="text-[#B7E4C7] text-sm flex items-center gap-2">

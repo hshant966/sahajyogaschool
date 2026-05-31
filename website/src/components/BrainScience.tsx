@@ -6,6 +6,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Zap, Heart, Brain, Moon } from "lucide-react";
+import { useLang } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,34 +17,36 @@ interface ChemicalFact {
   description: string;
 }
 
-const chemicalFacts: ChemicalFact[] = [
-  {
-    icon: <Heart className="w-5 h-5 text-[#52B788]" />,
-    title: "Beta Endorphins",
-    description: "Natural happiness + immune boost",
-  },
-  {
-    icon: <Zap className="w-5 h-5 text-[#C9A84C]" />,
-    title: "Dopamine",
-    description: "Sustained pleasure without side effects",
-  },
-  {
-    icon: <Brain className="w-5 h-5 text-[#52B788]" />,
-    title: "Serotonin",
-    description: "Protection against depression",
-  },
-  {
-    icon: <Moon className="w-5 h-5 text-[#C9A84C]" />,
-    title: "Melatonin",
-    description: "Better sleep + stronger immunity",
-  },
-];
-
 export default function BrainScience() {
   const containerRef = useRef<HTMLDivElement>(null);
   const brainSvgRef = useRef<SVGSVGElement>(null);
   const frontLobeRef = useRef<SVGCircleElement>(null);
   const limbicRef = useRef<SVGCircleElement>(null);
+  const { lang } = useLang();
+  const t = translations[lang];
+
+  const chemicalFacts: ChemicalFact[] = [
+    {
+      icon: <Heart className="w-5 h-5 text-[#52B788]" />,
+      title: t.brainScience.chemicals.endorphinsTitle,
+      description: t.brainScience.chemicals.endorphinsDesc,
+    },
+    {
+      icon: <Zap className="w-5 h-5 text-[#C9A84C]" />,
+      title: t.brainScience.chemicals.dopamineTitle,
+      description: t.brainScience.chemicals.dopamineDesc,
+    },
+    {
+      icon: <Brain className="w-5 h-5 text-[#52B788]" />,
+      title: t.brainScience.chemicals.serotoninTitle,
+      description: t.brainScience.chemicals.serotoninDesc,
+    },
+    {
+      icon: <Moon className="w-5 h-5 text-[#C9A84C]" />,
+      title: t.brainScience.chemicals.melatoninTitle,
+      description: t.brainScience.chemicals.melatoninDesc,
+    },
+  ];
 
   useGSAP(
     () => {
@@ -116,12 +120,12 @@ export default function BrainScience() {
               />
               {/* Overlay labels */}
               <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm">
-                <p className="text-xs font-semibold text-[#52B788]">Prefrontal Cortex</p>
-                <p className="text-xs text-[#6B7280]">↑ Deep Focus & Decision Making</p>
+                <p className="text-xs font-semibold text-[#52B788]">{t.brainScience.prefrontalCortex}</p>
+                <p className="text-xs text-[#6B7280]">{t.brainScience.prefrontalCortexDesc}</p>
               </div>
               <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm">
-                <p className="text-xs font-semibold text-[#C9A84C]">Amygdala</p>
-                <p className="text-xs text-[#6B7280]">↓ Stress & Fear Response</p>
+                <p className="text-xs font-semibold text-[#C9A84C]">{t.brainScience.amygdala}</p>
+                <p className="text-xs text-[#6B7280]">{t.brainScience.amygdalaDesc}</p>
               </div>
             </div>
             {/* Keep svg ref for TS compatibility - hidden */}
@@ -211,7 +215,7 @@ export default function BrainScience() {
                 fill="#52B788"
                 fontWeight="600"
               >
-                Frontal Lobe
+                {t.brainScience.frontalLobe}
               </text>
               <text
                 x="170"
@@ -220,7 +224,7 @@ export default function BrainScience() {
                 fill="#6B7280"
                 fontWeight="400"
               >
-                Deep Attention
+                {t.brainScience.frontalLobeDesc}
               </text>
 
               {/* Limbic System label */}
@@ -232,7 +236,7 @@ export default function BrainScience() {
                 fill="#C9A84C"
                 fontWeight="600"
               >
-                Limbic System
+                {t.brainScience.limbicSystem}
               </text>
               <text
                 x="310"
@@ -241,15 +245,15 @@ export default function BrainScience() {
                 fill="#6B7280"
                 fontWeight="400"
               >
-                Joy & Emotions
+                {t.brainScience.limbicSystemDesc}
               </text>
 
               {/* Mental Clutter Reduction label */}
               <text x="200" y="420" fontSize="13" fill="#1C1917" fontWeight="600" textAnchor="middle">
-                Reduced Mental Clutter
+                {t.brainScience.mentalClutter}
               </text>
               <text x="200" y="440" fontSize="11" fill="#6B7280" textAnchor="middle">
-                Theta waves increase deep focus
+                {t.brainScience.mentalClutterDesc}
               </text>
             </svg>
           </div>
@@ -259,14 +263,14 @@ export default function BrainScience() {
             {/* Section Label */}
             <div className="flex items-center gap-3">
               <span className="text-xs font-semibold uppercase tracking-widest text-[#52B788]">
-                Neuroscience
+                {t.brainScience.label}
               </span>
               <div className="w-2 h-2 rounded-full bg-[#52B788]" />
             </div>
 
             {/* Heading */}
             <h2 className="font-serif text-4xl lg:text-5xl font-semibold text-[#0F2A1E]">
-              Your brain on meditation
+              {t.brainScience.title}
             </h2>
 
             {/* Chemical Facts */}
@@ -287,16 +291,16 @@ export default function BrainScience() {
             {/* Quote Block */}
             <blockquote className="pl-6 border-l-4 border-[#C9A84C] py-4 bg-[#F2F2ED] px-4 rounded-sm">
               <p className="italic text-[#1C1917] font-normal text-base">
-                Mental silence is a state of super mental balance — more than normal people have.
+                {t.brainScience.quote}
               </p>
               <footer className="text-sm text-[#6B7280] mt-3 font-medium">
-                Prof. Katya Rubia, King's College London
+                {t.brainScience.quoteAuthor}
               </footer>
             </blockquote>
 
             {/* Supporting text */}
             <p className="text-sm text-[#6B7280] leading-relaxed">
-              MRI and EEG studies confirm meditation creates a measurably different state of consciousness.
+              {t.brainScience.supportingText}
             </p>
           </div>
         </div>
