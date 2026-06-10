@@ -17,3 +17,71 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 h1,h2,h3 { font-family: 'DM Serif Display', Georgia, serif; }
+
+/* Responsive Grid for Email Layout */
+.email-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 32px;
+}
+
+@media (max-width: 900px) {
+  .email-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Responsive Grid for Language and Tone Options */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 480px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Responsive Grid for Sender Info Input Fields */
+.sender-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .sender-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive Header style adjustments */
+@media (max-width: 640px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 12px;
+  }
+  .header-sub {
+    font-size: 11px;
+    align-self: flex-start;
+  }
+}
+
+/* Onboarding Tooltip Class - Hardware-Accelerated */
+.tour-tooltip {
+  position: absolute;
+  z-index: 1002;
+  width: 320px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  border: 2.5px solid #2D6A4F;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+}
