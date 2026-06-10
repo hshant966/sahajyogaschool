@@ -324,9 +324,35 @@ export default function HomePage() {
 
       {/* 3. Walkthrough Tooltip Message Box */}
       {tourActive && (
-        <div className="tour-tooltip" style={getTooltipStyle()}>
+        <div className="tour-tooltip" style={{
+          ...getTooltipStyle(),
+          ...(tourStep === 0 ? {
+            width: "90%",
+            maxWidth: "440px",
+            border: "3.5px solid #C9A84C",
+            padding: "24px 28px",
+            boxShadow: "0 25px 30px -5px rgba(0, 0, 0, 0.45), 0 15px 15px -5px rgba(0, 0, 0, 0.45)",
+          } : {})
+        }}>
+          {tourStep === 0 && (
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
+              <div style={{
+                width: 50,
+                height: 50,
+                borderRadius: "50%",
+                background: "rgba(201, 168, 76, 0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "1.5px solid #C9A84C"
+              }}>
+                <span style={{ fontSize: 24 }}>🙏</span>
+              </div>
+            </div>
+          )}
+
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-            <span style={{ fontSize: 10, fontWeight: 700, color: "#52B788", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            <span style={{ fontSize: 10, fontWeight: 700, color: tourStep === 0 ? "#C9A84C" : "#52B788", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               Step {tourStep + 1} of {TOUR_STEPS.length}
             </span>
             <button onClick={closeTour} style={{ border: "none", background: "none", cursor: "pointer", color: "#6B7280", padding: 2 }}>
@@ -334,11 +360,24 @@ export default function HomePage() {
             </button>
           </div>
           
-          <h4 style={{ fontFamily: "DM Serif Display, Georgia, serif", fontSize: 18, color: "#0F2A1E", marginBottom: 8, fontWeight: "bold" }}>
+          <h4 style={{ 
+            fontFamily: "DM Serif Display, Georgia, serif", 
+            fontSize: tourStep === 0 ? 22 : 18, 
+            color: "#0F2A1E", 
+            marginBottom: 8, 
+            fontWeight: "bold",
+            textAlign: tourStep === 0 ? "center" : "left"
+          }}>
             {TOUR_STEPS[tourStep].title}
           </h4>
           
-          <p style={{ fontSize: 12.5, lineHeight: 1.6, color: "#4B5563", marginBottom: 20 }}>
+          <p style={{ 
+            fontSize: 13, 
+            lineHeight: 1.6, 
+            color: "#4B5563", 
+            marginBottom: 20,
+            textAlign: tourStep === 0 ? "center" : "left"
+          }}>
             {TOUR_STEPS[tourStep].content}
           </p>
 
@@ -365,11 +404,12 @@ export default function HomePage() {
               <button 
                 onClick={nextStep} 
                 style={{ 
-                  display: "flex", alignItems: "center", gap: 4, padding: "6px 12px", borderRadius: 8, 
-                  border: "none", background: "#0F2A1E", color: "white", fontSize: 11, fontWeight: 600, cursor: "pointer"
+                  display: "flex", alignItems: "center", gap: 6, padding: tourStep === 0 ? "8px 16px" : "6px 12px", borderRadius: 8, 
+                  border: "none", background: tourStep === 0 ? "#C9A84C" : "#0F2A1E", 
+                  color: tourStep === 0 ? "#0F2A1E" : "white", fontSize: tourStep === 0 ? 12 : 11, fontWeight: 700, cursor: "pointer"
                 }}
               >
-                {tourStep === TOUR_STEPS.length - 1 ? "Finish" : "Next"} <ChevronRight size={13} />
+                {tourStep === TOUR_STEPS.length - 1 ? "Finish" : tourStep === 0 ? "Begin Tour" : "Next"} <ChevronRight size={13} />
               </button>
             </div>
           </div>
