@@ -137,7 +137,7 @@ export default function Footer() {
 
         <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[#6B7280] text-sm">
-            © {new Date().getFullYear()} Sahaja Yoga Science. Research compiled for educational purposes.
+            © {new Date().getFullYear()} Sahaja Yoga Science. Research compiled for educational purposes. {/* rebuild trigger */}
           </p>
           <p className="text-[#6B7280] text-xs">
             All research citations available upon request.
